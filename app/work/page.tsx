@@ -17,7 +17,7 @@ export default function WorkPage() {
 
         <div className="w-full mt-12 max-w-[650px] ml-auto relative">
             <img
-              src="https://static.wixstatic.com/media/11062b_59e2154cc2964841844a6912615cc6f2~mv2.jpeg/v1/fill/w_643,h_407,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Residential%20Homes.jpeg"
+              src="/images/houses.avif"  
               alt="Architecture Detail"
               className="w-full h-auto object-cover"
             />
@@ -40,7 +40,7 @@ export default function WorkPage() {
 
         <div className="w-full mt-12 max-w-[650px] ml-auto relative">
             <img
-              src="https://static.wixstatic.com/media/372fc4_ffb1cd28f9114e4082df3d0d218e9f00~mv2.jpg/v1/fill/w_643,h_407,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/01%20commercial.jpg"
+              src="/images/residential.avif"  
               alt="Architecture Detail"
               className="w-full h-auto object-cover"
             />
@@ -61,8 +61,7 @@ export default function WorkPage() {
 
         <div className="w-full mt-12 max-w-[650px] ml-auto relative">
             <img
-              src="https://static.wixstatic.com/media/372fc4_cb05aab3edaa405aa0f32fbcfa0bcd93~mv2.jpg/v1/fill/w_643,h_407,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/01%20Conservation%20.jpg"
-              alt="Architecture Detail"
+              src="/images/commercial.avif"  
               className="w-full h-auto object-cover"
             />
           </div>
@@ -84,7 +83,7 @@ export default function WorkPage() {
 
         <div className="w-full mt-12 max-w-[650px] ml-auto relative">
             <img
-              src="https://static.wixstatic.com/media/372fc4_3c7e22c5685f403b9334150172df87d2~mv2.jpg/v1/fill/w_641,h_440,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/1.jpg"
+              src="/images/conversation.avif"  
               alt="Architecture Detail"
               className="w-full h-auto object-cover"
             />
@@ -107,7 +106,7 @@ export default function WorkPage() {
 
         <div className="w-full mt-12 max-w-[650px] ml-auto relative">
             <img
-              src="https://static.wixstatic.com/media/372fc4_45089bf965b24535b0bd065062c9ddaa~mv2.jpg/v1/fill/w_643,h_407,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/01%20Restorations.jpg"
+              src="/images/restoration.avif"  
               alt="Architecture Detail"
               className="w-full h-auto object-cover"
             />
@@ -130,7 +129,7 @@ export default function WorkPage() {
 
         <div className="w-full mt-12 max-w-[650px] ml-auto relative">
             <img
-              src="https://static.wixstatic.com/media/372fc4_45089bf965b24535b0bd065062c9ddaa~mv2.jpg/v1/fill/w_643,h_407,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/01%20Restorations.jpg"
+              src="/images/urban.avif"  
               alt="Architecture Detail"
               className="w-full h-auto object-cover"
             />
@@ -161,7 +160,7 @@ export default function WorkPage() {
 
         <div className="mb-20 mt-12">
           <h2 className="text-right text-[40px] font-light text-[#3C3C34] mb-10">
-            Restoration
+            Objects
           </h2>
           <div className="text-right">
           <p className='text-[15px] leading-[1.2] text-[#848484] mb-2'>Fourem have expert knowledge of the development of Irish Architecture through the</p>
@@ -176,7 +175,7 @@ export default function WorkPage() {
 
         <div className="w-full mt-12 max-w-[650px] ml-auto relative">
             <img
-              src="https://static.wixstatic.com/media/372fc4_45089bf965b24535b0bd065062c9ddaa~mv2.jpg/v1/fill/w_643,h_407,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/01%20Restorations.jpg"
+              src="/images/objects.avif"  
               alt="Architecture Detail"
               className="w-full h-auto object-cover"
             />

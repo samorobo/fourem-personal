@@ -70,7 +70,7 @@ export default function ReadPage() {
 
           <div className="w-full mt-12 max-w-[650px] ml-auto relative">
             <img
-              src="https://static.wixstatic.com/media/372fc4_3c7e22c5685f403b9334150172df87d2~mv2.jpg/v1/fill/w_641,h_440,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/1.jpg"
+              src="/images/read.avif"  
               alt="Architecture Detail"
               className="w-full h-auto object-cover"
             />
