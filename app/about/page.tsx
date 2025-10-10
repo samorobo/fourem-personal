@@ -12,11 +12,21 @@ export default function AboutPage() {
             About Us
           </h4>
           <div className="w-full max-w-[650px] ml-auto relative">
-            <img
-              src="https://ext.same-assets.com/2199429056/2255409945.jpeg"
-              alt="Architecture Detail"
-              className="w-full h-auto object-cover"
-            />
+            <div className="relative w-full h-[500px] bg-gray-100">
+              <Image
+                src="/images/architecture-detail.jpg"  // Replace with your actual image path
+                alt="Architecture Detail"
+                fill
+                className="object-cover"
+                priority
+                onError={(e) => {
+                  // Fallback to a placeholder image if the main image fails to load
+                  const target = e.target as HTMLImageElement;
+                  target.onerror = null;
+                  target.src = 'https://placehold.co/800x500/3C3C34/FFFFFF?text=Fourem+Architecture';
+                }}
+              />
+            </div>
           </div>
         </div>
 
