@@ -53,23 +53,20 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
             </h1>
           </Link>
 
-          <nav className={`space-y-${isWorkPage ? '6' : '8'}`}>
+          <nav className={`-mt-12 space-y-${isWorkPage ? '6' : '8'}`}>
             {isWorkPage ? (
               <>
                 <Link
                   href="/"
-                  className="block text-[20px] font-light text-[#3C3C34] hover:opacity-70 transition-opacity mb-10"
+                  className="block text-[20px] font-light text-[#3C3C34] hover:opacity-70 transition-opacity mb-2"
                 >
                   ← Go back
                 </Link>
-                <h2 className="text-[20px] font-normal text-[#3C3C34] mb-6">
-                  Work
-                </h2>
                 {workNavItems.slice(1).map((item) => (
                   <Link
                     key={item.name}
                     href={item.href}
-                    className={`block text-[15px] font-light text-[#3C3C34] hover:opacity-70 transition-opacity ${
+                    className={`block text-[23px] font-light text-[#3C3C34] hover:opacity-70 transition-opacity ${
                       pathname === item.href ? "opacity-60" : ""
                     }`}
                   >
@@ -82,7 +79,7 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`block text-[20px] font-light text-[#3C3C34] hover:opacity-70 transition-opacity ${
+                  className={`block text-[30px] font-light text-[#3C3C34] hover:opacity-70 transition-opacity ${
                     pathname === item.href ? "opacity-60" : ""
                   }`}
                 >
