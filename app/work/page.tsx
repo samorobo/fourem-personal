@@ -1,4 +1,14 @@
 import SidebarLayout from '@/components/SidebarLayout';
+import ImageCarousel from '@/components/ImageCarousel';
+
+const houseImages = [
+  '/images/About.avif',
+  '/images/houses.avif',
+  '/images/objects.avif',
+  '/images/urban.avif',
+  '/images/report.avif',
+  // Add more images as needed
+];
 
 export default function WorkPage() {
   return (
@@ -9,19 +19,15 @@ export default function WorkPage() {
             Houses
           </h2>
           <div className="text-right">
-          <p className='text-[15px] leading-[1.2] text-[#848484] mb-2'>Fourem seek design solutions that ensure economical results, balancing approach to</p>
+            <p className='text-[15px] leading-[1.2] text-[#848484] mb-2'>Fourem seek design solutions that ensure economical results, balancing approach to</p>
             <p className='text-[15px] leading-[1.2] text-[#848484] mb-2'>create inspiring places to live. They create enduring architecture that promotes</p>
             <p className='text-[15px] leading-[1.2] text-[#848484] mb-2'>wellbeing, is grounded in the landscape and focuses on peace and serenity internally.</p>
-        </div>
+          </div>
         </div>
 
         <div className="w-full mt-12 max-w-[650px] ml-auto relative">
-            <img
-              src="/images/houses.avif"  
-              alt="Architecture Detail"
-              className="w-full h-auto object-cover"
-            />
-          </div>
+          <ImageCarousel images={houseImages} />
+        </div>
 
         <div className="mb-20 mt-12">
           <h2 className="text-right text-[40px] font-light text-[#3C3C34] mb-10">

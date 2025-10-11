@@ -1,27 +1,35 @@
 'use client';
 
 import Link from 'next/link';
+import BackgroundSlider from '@/components/BackgroundSlider';
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen bg-[#9A9A9A] flex items-center justify-center">
-      {/* Top Bar */}
-      <div className="absolute top-0 left-0 right-0 bg-white h-[50px] flex items-center justify-between px-8">
-        <div className="w-8 h-8 bg-black"></div>
-        <div className="text-xs text-[#3C3C34]">
-          This website was created by <span className="underline">CEIM DIGITAL</span>
-        </div>
+    <div className="relative min-h-screen flex items-center justify-center p-4 overflow-hidden">
+      {/* Background Slider */}
+      <BackgroundSlider />
+      
+      {/* Main Content */}
+      <div className="relative z-10 w-full max-w-6xl mx-auto text-center">
+        <Link href="/about" className="cursor-pointer">
+          <h1 className="text-[48px] sm:text-[80px] md:text-[120px] lg:text-[160px] xl:text-[200px] font-extralight tracking-wide text-white leading-[0.9] md:leading-none">
+            Fourem
+          </h1>
+        </Link>
       </div>
 
-      {/* Main Content */}
-      <Link href="/about" className="cursor-pointer">
-        <h1 className="text-[200px] font-extralight tracking-wide text-white leading-none">
-          Fourem
-        </h1>
-      </Link>
-
-      {/* Vertical Divider Line */}
-      {/* <div className="absolute top-[50px] bottom-0 left-1/2 w-[60px] bg-[#7A7A7A] -translate-x-1/2"></div> */}
+      {/* Mobile Menu Button - Only shown on mobile */}
+      <div className="lg:hidden fixed bottom-6 right-6 z-50">
+        <Link 
+          href="/about" 
+          className="flex items-center justify-center w-14 h-14 bg-black/80 text-white rounded-full shadow-lg hover:bg-black transition-colors backdrop-blur-sm"
+          aria-label="Go to about page"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </Link>
+      </div>
     </div>
   );
 }

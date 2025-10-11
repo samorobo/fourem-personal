@@ -12,7 +12,7 @@ export default function AboutPage() {
             About Us
           </h4>
           <div className="w-full max-w-[650px] ml-auto relative">
-            <div className="relative w-full h-[500px] bg-gray-100">
+            <div className="relative w-full h-[300px] bg-gray-100">
               <Image
                 src="/images/About.avif"  // Replace with your actual image path
                 alt="Architecture Detail"
