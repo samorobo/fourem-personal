@@ -7,7 +7,83 @@ const houseImages = [
   '/images/objects.avif',
   '/images/urban.avif',
   '/images/report.avif',
-  // Add more images as needed
+];
+
+const residentialImages = [
+  '/images/residential.avif',
+  '/images/residential-2.avif',
+  '/images/residential-3.avif',
+  '/images/residential-4.avif',
+];
+
+const commercialImages = [
+  '/images/commercial.avif',
+  '/images/commercial-2.avif',
+  '/images/commercial-3.avif',
+  '/images/commercial-4.avif',
+];
+
+const conservationImages = [
+  '/images/conservation.avif',
+  '/images/conservation-2.avif',
+  '/images/conservation-3.avif',
+  '/images/conservation-4.avif',
+];
+
+const restorationImages = [
+  '/images/restoration.avif',
+  '/images/restoration-2.avif',
+  '/images/restoration-3.avif',
+  '/images/restoration-4.avif',
+];
+
+const urbanDesignImages = [
+  '/images/urban.avif',
+  '/images/urban-2.avif',
+  '/images/urban-3.avif',
+  '/images/urban-4.avif',
+];
+
+const landscapingImages = [
+  '/images/landscaping.avif',
+  '/images/landscaping-2.avif',
+  '/images/landscaping-3.avif',
+  '/images/landscaping-4.avif',
+];
+
+const consultingImages = [
+  '/images/consulting.avif',
+  '/images/consulting-2.avif',
+  '/images/consulting-3.avif',
+  '/images/consulting-4.avif',
+];
+
+const reportsImages = [
+  '/images/report.avif',
+  '/images/report-2.avif',
+  '/images/report-3.avif',
+  '/images/report-4.avif',
+];
+
+const publicationsImages = [
+  '/images/publication.avif',
+  '/images/publication-2.avif',
+  '/images/publication-3.avif',
+  '/images/publication-4.avif',
+];
+
+const interiorsImages = [
+  '/images/interior.avif',
+  '/images/interior-2.avif',
+  '/images/interior-3.avif',
+  '/images/interior-4.avif',
+];
+
+const objectsImages = [
+  '/images/objects.avif',
+  '/images/objects-2.avif',
+  '/images/objects-3.avif',
+  '/images/objects-4.avif',
 ];
 
 export default function WorkPage() {
@@ -45,13 +121,8 @@ export default function WorkPage() {
         </div>
 
         <div className="w-full mt-12 max-w-[650px] ml-auto relative">
-            <img
-              src="/images/residential.avif"  
-              alt="Architecture Detail"
-              className="w-full h-auto object-cover"
-            />
-          </div>
-
+          <ImageCarousel images={residentialImages} />
+        </div>
 
         <div className="mb-20 mt-12">
           <h2 className="text-right text-[40px] font-light text-[#3C3C34] mb-10">
@@ -66,11 +137,8 @@ export default function WorkPage() {
         </div>
 
         <div className="w-full mt-12 max-w-[650px] ml-auto relative">
-            <img
-              src="/images/commercial.avif"  
-              className="w-full h-auto object-cover"
-            />
-          </div>
+          <ImageCarousel images={commercialImages} />
+        </div>
 
         <div className="mb-20 mt-12">
           <h2 className="text-right text-[40px] font-light text-[#3C3C34] mb-10">
@@ -88,12 +156,8 @@ export default function WorkPage() {
         </div>
 
         <div className="w-full mt-12 max-w-[650px] ml-auto relative">
-            <img
-              src="/images/conversation.avif"  
-              alt="Architecture Detail"
-              className="w-full h-auto object-cover"
-            />
-          </div>
+          <ImageCarousel images={conservationImages} />
+        </div>
         
         <div className="mb-20 mt-12">
           <h2 className="text-right text-[40px] font-light text-[#3C3C34] mb-10">
@@ -111,12 +175,8 @@ export default function WorkPage() {
         </div>
 
         <div className="w-full mt-12 max-w-[650px] ml-auto relative">
-            <img
-              src="/images/restoration.avif"  
-              alt="Architecture Detail"
-              className="w-full h-auto object-cover"
-            />
-          </div>
+          <ImageCarousel images={restorationImages} />
+        </div>
 
         <div className="mb-20 mt-12">
           <h2 className="text-right text-[40px] font-light text-[#3C3C34] mb-10">
@@ -133,12 +193,8 @@ export default function WorkPage() {
         </div>
 
         <div className="w-full mt-12 max-w-[650px] ml-auto relative">
-            <img
-              src="/images/urban.avif"  
-              alt="Architecture Detail"
-              className="w-full h-auto object-cover"
-            />
-          </div>
+          <ImageCarousel images={urbanDesignImages} />
+        </div>
           
         <div className="mb-20 mt-12">
           <h2 className="text-right text-[40px] font-light text-[#3C3C34] mb-10">
@@ -153,12 +209,8 @@ export default function WorkPage() {
         </div>
 
         <div className="w-full mt-12 max-w-[650px] ml-auto relative">
-            <img
-              src="/images/landscaping.avif"  
-              alt="Architecture Detail"
-              className="w-full h-auto object-cover"
-            />
-          </div>
+          <ImageCarousel images={landscapingImages} />
+        </div>
 
 
         <div className="mb-20 mt-12">
@@ -177,12 +229,8 @@ export default function WorkPage() {
         </div>
 
         <div className="w-full mt-12 max-w-[650px] ml-auto relative">
-            <img
-              src="/images/consulting.avif"  
-              alt="Architecture Detail"
-              className="w-full h-auto object-cover"
-            />
-          </div>
+          <ImageCarousel images={consultingImages} />
+        </div>
 
 
         <div className="mb-20 mt-12">
@@ -201,12 +249,8 @@ export default function WorkPage() {
         </div>
 
         <div className="w-full mt-12 max-w-[650px] ml-auto relative">
-            <img
-              src="/images/report.avif"  
-              alt="Architecture Detail"
-              className="w-full h-auto object-cover"
-            />
-          </div>
+          <ImageCarousel images={reportsImages} />
+        </div>
 
 
         <div className="mb-20 mt-12">
@@ -223,12 +267,8 @@ export default function WorkPage() {
         </div>
 
         <div className="w-full mt-12 max-w-[650px] ml-auto relative">
-            <img
-              src="/images/publication.avif"  
-              alt="Architecture Detail"
-              className="w-full h-auto object-cover"
-            />
-          </div>
+          <ImageCarousel images={publicationsImages} />
+        </div>
 
 
         <div className="mb-20 mt-12">
@@ -245,12 +285,8 @@ export default function WorkPage() {
         </div>
 
         <div className="w-full mt-12 max-w-[650px] ml-auto relative">
-            <img
-              src="/images/interior.avif"  
-              alt="Architecture Detail"
-              className="w-full h-auto object-cover"
-            />
-          </div>
+          <ImageCarousel images={interiorsImages} />
+        </div>
 
         <div className="mb-20 mt-12">
           <h2 className="text-right text-[40px] font-light text-[#3C3C34] mb-10">
@@ -268,12 +304,8 @@ export default function WorkPage() {
         </div>
 
         <div className="w-full mt-12 max-w-[650px] ml-auto relative">
-            <img
-              src="/images/objects.avif"  
-              alt="Architecture Detail"
-              className="w-full h-auto object-cover"
-            />
-          </div>
+          <ImageCarousel images={objectsImages} />
+        </div>
 
 
       </div>
