@@ -2,11 +2,12 @@ import SidebarLayout from '@/components/SidebarLayout';
 import ImageCarousel from '@/components/ImageCarousel';
 
 const houseImages = [
-  '/images/About.avif',
-  '/images/houses.avif',
-  '/images/objects.avif',
-  '/images/urban.avif',
-  '/images/report.avif',
+  '/images/01 Houses(1).jpg',
+  '/images/02 Houses(1).jpg',
+  '/images/003 Houses(1).jpg',
+  '/images/04 Houses.JPG',
+  '/images/05 Houses (1).jpg',
+  '/images/06 Houses(1).jpg',
 ];
 
 const residentialImages = [
@@ -24,17 +25,25 @@ const commercialImages = [
 ];
 
 const conservationImages = [
-  '/images/conservation.avif',
-  '/images/conservation-2.avif',
-  '/images/conservation-3.avif',
-  '/images/conservation-4.avif',
+  '/images/01 Conservation (1).jpg',
+  '/images/02 Conservation.jpg',
+  '/images/03 Conservation.jpg',
+  '/images/04 conservation.jpg',
+  '/images/05 Conservation.jpg',
+  '/images/06 Conservation.jpg',
+  '/images/07 Conservation.jpg',
+  '/images/08 Conservation.jpg',
 ];
 
 const restorationImages = [
-  '/images/restoration.avif',
-  '/images/restoration-2.avif',
-  '/images/restoration-3.avif',
-  '/images/restoration-4.avif',
+  '/images/01 Restoration.jpg',
+  '/images/02 Restoration.jpg',
+  '/images/03 Restoration.jpg',
+  '/images/04 Restoration.jpg',
+  '/images/05 Restoration.jpg',
+  '/images/06 Restoration.jpg',
+  '/images/07 Restoration.jpg',
+  'images/W H 2 PHOTO 15 (Edited).jpg'
 ];
 
 const urbanDesignImages = [
@@ -45,10 +54,7 @@ const urbanDesignImages = [
 ];
 
 const landscapingImages = [
-  '/images/landscaping.avif',
-  '/images/landscaping-2.avif',
-  '/images/landscaping-3.avif',
-  '/images/landscaping-4.avif',
+  '/images/03 Landscape.JPG',
 ];
 
 const consultingImages = [
@@ -59,31 +65,33 @@ const consultingImages = [
 ];
 
 const reportsImages = [
-  '/images/report.avif',
-  '/images/report-2.avif',
-  '/images/report-3.avif',
-  '/images/report-4.avif',
+  '/images/01 reports.jpg',
+  '/images/02 reports.jpg',
+  '/images/03 reports.jpg',
+  '/images/04 reports.jpg',
+  '/images/05 reports.jpg',
 ];
 
 const publicationsImages = [
-  '/images/publication.avif',
-  '/images/publication-2.avif',
-  '/images/publication-3.avif',
-  '/images/publication-4.avif',
+  'images/Innishannon Report Cover.jpg',
+  'images/Streetscapes of County Cork.JPG'
 ];
 
 const interiorsImages = [
-  '/images/interior.avif',
-  '/images/interior-2.avif',
-  '/images/interior-3.avif',
-  '/images/interior-4.avif',
+  '/images/interiors 01.jpg',
+  '/images/interiors 02.jpg',
+  '/images/interiors 03.jpg',
+  '/images/interiors 004.jpg',
+  '/images/interiors 05.jpg',
+  '/images/interiors 06.jpg',
+  '/images/interiors 07.jpg',
 ];
 
 const objectsImages = [
-  '/images/objects.avif',
-  '/images/objects-2.avif',
-  '/images/objects-3.avif',
-  '/images/objects-4.avif',
+  '/images/01 Object.jpg',
+  '/images/02 Object.jpg',
+  '/images/03 Object.jpg',
+  '/images/Ballinora church18.jpg',
 ];
 
 export default function WorkPage() {
@@ -91,7 +99,7 @@ export default function WorkPage() {
     <SidebarLayout>
       <div className="-pr-12 py-16 pl-20">
         <div className="mb-20">
-          <h2 className="text-right text-[40px] font-light text-[#3C3C34] mb-10">
+          <h2 id="houses" className="text-right text-[40px] font-light text-[#3C3C34] mb-10 scroll-mt-24">
             Houses
           </h2>
           <div className="text-right">
@@ -106,7 +114,7 @@ export default function WorkPage() {
         </div>
 
         <div className="mb-20 mt-12">
-          <h2 className="text-right text-[40px] font-light text-[#3C3C34] mb-10">
+          <h2 id="residential" className="text-right text-[40px] font-light text-[#3C3C34] mb-10 scroll-mt-24">
             Residential
           </h2>
           <div className="text-right">
@@ -125,7 +133,7 @@ export default function WorkPage() {
         </div>
 
         <div className="mb-20 mt-12">
-          <h2 className="text-right text-[40px] font-light text-[#3C3C34] mb-10">
+          <h2 id="commercial" className="text-right text-[40px] font-light text-[#3C3C34] mb-10 scroll-mt-24">
             Commercial
           </h2>
           <div className="text-right">
@@ -141,7 +149,7 @@ export default function WorkPage() {
         </div>
 
         <div className="mb-20 mt-12">
-          <h2 className="text-right text-[40px] font-light text-[#3C3C34] mb-10">
+          <h2 id="conservation" className="text-right text-[40px] font-light text-[#3C3C34] mb-10 scroll-mt-24">
             Conservation
           </h2>
           <div className="text-right">
@@ -160,7 +168,7 @@ export default function WorkPage() {
         </div>
         
         <div className="mb-20 mt-12">
-          <h2 className="text-right text-[40px] font-light text-[#3C3C34] mb-10">
+          <h2 id="restoration" className="text-right text-[40px] font-light text-[#3C3C34] mb-10 scroll-mt-24">
             Restoration
           </h2>
           <div className="text-right">
@@ -179,7 +187,7 @@ export default function WorkPage() {
         </div>
 
         <div className="mb-20 mt-12">
-          <h2 className="text-right text-[40px] font-light text-[#3C3C34] mb-10">
+          <h2 id="urban-design" className="text-right text-[40px] font-light text-[#3C3C34] mb-10 scroll-mt-24">
             Urban Design
           </h2>
           <div className="text-right">
@@ -197,7 +205,7 @@ export default function WorkPage() {
         </div>
           
         <div className="mb-20 mt-12">
-          <h2 className="text-right text-[40px] font-light text-[#3C3C34] mb-10">
+          <h2 id="landscaping" className="text-right text-[40px] font-light text-[#3C3C34] mb-10 scroll-mt-24">
             LandScaping
           </h2>
           <div className="text-right">
@@ -214,7 +222,7 @@ export default function WorkPage() {
 
 
         <div className="mb-20 mt-12">
-          <h2 className="text-right text-[40px] font-light text-[#3C3C34] mb-10">
+          <h2 id="consulting" className="text-right text-[40px] font-light text-[#3C3C34] mb-10 scroll-mt-24">
           Consulting
           </h2>
           <div className="text-right">
@@ -234,7 +242,7 @@ export default function WorkPage() {
 
 
         <div className="mb-20 mt-12">
-          <h2 className="text-right text-[40px] font-light text-[#3C3C34] mb-10">
+          <h2 id="reports" className="text-right text-[40px] font-light text-[#3C3C34] mb-10 scroll-mt-24">
             Reports
           </h2>
           <div className="text-right">
@@ -254,7 +262,7 @@ export default function WorkPage() {
 
 
         <div className="mb-20 mt-12">
-          <h2 className="text-right text-[40px] font-light text-[#3C3C34] mb-10">
+          <h2 id="publications" className="text-right text-[40px] font-light text-[#3C3C34] mb-10 scroll-mt-24">
             Publications
           </h2>
           <div className="text-right">
@@ -272,7 +280,7 @@ export default function WorkPage() {
 
 
         <div className="mb-20 mt-12">
-          <h2 className="text-right text-[40px] font-light text-[#3C3C34] mb-10">
+          <h2 id="interiors" className="text-right text-[40px] font-light text-[#3C3C34] mb-10 scroll-mt-24">
             Interiors
           </h2>
           <div className="text-right">
@@ -289,7 +297,7 @@ export default function WorkPage() {
         </div>
 
         <div className="mb-20 mt-12">
-          <h2 className="text-right text-[40px] font-light text-[#3C3C34] mb-10">
+          <h2 id="objects" className="text-right text-[40px] font-light text-[#3C3C34] mb-10 scroll-mt-24">
             Objects
           </h2>
           <div className="text-right">
