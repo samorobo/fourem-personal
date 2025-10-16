@@ -15,6 +15,10 @@ body {
   overflow-x: hidden;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #E4EEF4;
   color: #3C3C34;
@@ -36,4 +40,22 @@ h6 {
 /* Ensure all sidebar text uses Effra */
 #sidebar {
   font-family: "Effra", Arial, Helvetica, sans-serif;
+}
+
+/* Utility: hide scrollbars but keep scroll functionality */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+/* Subtle highlight on scrolled-to sections for clearer feedback */
+@keyframes pulseHighlight {
+  0% { background-color: rgba(255, 235, 59, 0.35); }
+  100% { background-color: transparent; }
+}
+.scroll-highlight {
+  animation: pulseHighlight 1000ms ease-out 1;
 }

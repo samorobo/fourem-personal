@@ -21,18 +21,20 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
   ];
 
   const workNavItems = [
-    { name: "Go back", href: "/" },
-    { name: "Commercial", href: "/work/commercial" },
-    { name: "Conservation", href: "/work/conservation" },
-    { name: "Consulting", href: "/work/consulting" },
-    { name: "Houses Interiors", href: "/work/houses-interiors" },
-    { name: "Landscaping", href: "/work/landscaping" },
-    { name: "Objects", href: "/work/objects" },
-    { name: "Publications", href: "/work/publications" },
-    { name: "Reports", href: "/work/reports" },
-    { name: "Residential", href: "/work/residential" },
-    { name: "Restoration", href: "/work/restoration" },
-  ];
+    { name: "Go back", type: "back", id: "" },
+    { name: "Houses", type: "section", id: "houses" },
+    { name: "Residential", type: "section", id: "residential" },
+    { name: "Commercial", type: "section", id: "commercial" },
+    { name: "Conservation", type: "section", id: "conservation" },
+    { name: "Restoration", type: "section", id: "restoration" },
+    { name: "Urban Design", type: "section", id: "urban-design" },
+    { name: "Landscaping", type: "section", id: "landscaping" },
+    { name: "Consulting", type: "section", id: "consulting" },
+    { name: "Reports", type: "section", id: "reports" },
+    { name: "Publications", type: "section", id: "publications" },
+    { name: "Interiors", type: "section", id: "interiors" },
+    { name: "Objects", type: "section", id: "objects" },
+  ] as const;
 
   return (
     <div className="min-h-screen bg-[#E4EEF4] flex flex-col">
@@ -69,7 +71,7 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
         {/* Fixed Sidebar */}
         <div className="fixed top-0 left-0 h-screen w-[240px] bg-[#E4EEF4] z-40 transform -translate-x-full lg:translate-x-0 lg:top-[50px] lg:h-[calc(100vh-50px)] transition-transform duration-300" 
              id="sidebar">
-          <div className="h-full overflow-y-auto">
+          <div className="h-full overflow-y-auto no-scrollbar">
             <div className="p-6 pl-10 pt-8 pb-8 flex flex-col h-full">
               <div className="flex-1">
                 <div className="flex justify-between items-center mb-6 lg:mb-16">
@@ -89,21 +91,46 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
                 <nav className={`flex flex-col ${isWorkPage ? "space-y-8 lg:space-y-16 mt-4 lg:mt-6" : "space-y-4 lg:space-y-6 mt-2"}`}>
                   {isWorkPage ? (
                     <>
+                      {/* Back link */}
                       <Link href="/" className="block -mt-4 lg:-mt-8 text-[18px] lg:text-[20px] font-light text-[#3C3C34] hover:opacity-70 transition-opacity">
                         ← Go back
                       </Link>
 
-                      {workNavItems.slice(1).map((item) => (
-                        <Link
-                          key={item.name}
-                          href={item.href}
-                          className={`block text-[18px] lg:text-[23px] font-light text-[#3C3C34] hover:opacity-70 transition-opacity ${
-                            pathname === item.href ? "opacity-60" : ""
-                          }`}
-                        >
-                          {item.name}
-                        </Link>
-                      ))}
+                      {/* Section links (scroll within Work page) */}
+                      {workNavItems
+                        .filter((i) => i.type === "section")
+                        .map((item) => {
+                          const defaultHref = pathname === "/work" ? `#${item.id}` : `/work#${item.id}`;
+                          return (
+                            <Link
+                              key={item.id}
+                              href={defaultHref}
+                              prefetch={false}
+                              onClick={(e) => {
+                                // If we are on the work page, intercept and do smooth scrolling
+                                if (pathname === "/work") {
+                                  e.preventDefault();
+                                  const target = document.getElementById(item.id);
+                                  if (!target) return;
+
+                                  // Scroll the target into view with smooth behavior
+                                  target.scrollIntoView({ 
+                                    behavior: 'smooth', 
+                                    block: 'start',
+                                    inline: 'nearest'
+                                  });
+
+                                  // Add a brief highlight to the heading for feedback
+                                  target.classList.add('scroll-highlight');
+                                  setTimeout(() => target.classList.remove('scroll-highlight'), 1000);
+                                }
+                              }}
+                              className="block text-[18px] lg:text-[23px] font-light text-[#3C3C34] hover:opacity-70 transition-opacity"
+                            >
+                              {item.name}
+                            </Link>
+                          );
+                        })}
                     </>
                   ) : (
                     mainNavItems.map((item) => (
@@ -130,7 +157,7 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
         </div>
 
         {/* Scrollable Main Content */}
-        <main className="flex-1 w-full lg:ml-[240px] px-4 lg:pl-8 lg:pr-16 py-4 lg:py-8 overflow-y-auto">
+        <main id="work-content" className="flex-1 w-full lg:ml-[240px] px-4 lg:pl-8 lg:pr-16 py-4 lg:py-8 overflow-y-auto no-scrollbar">
           {children}
         </main>
       </div>
