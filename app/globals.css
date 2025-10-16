@@ -18,7 +18,22 @@ body {
 body {
   background-color: #E4EEF4;
   color: #3C3C34;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Times New Roman", Times, serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Use Effra for all titles/headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Effra", Arial, Helvetica, sans-serif !important;
+}
+
+/* Ensure all sidebar text uses Effra */
+#sidebar {
+  font-family: "Effra", Arial, Helvetica, sans-serif;
 }

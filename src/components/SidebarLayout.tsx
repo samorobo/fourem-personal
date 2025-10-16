@@ -22,17 +22,16 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
 
   const workNavItems = [
     { name: "Go back", href: "/" },
-    { name: "Commercial", href: "#commercial" },
-    { name: "Conservation", href: "#conservation" },
-    { name: "Consulting", href: "#consulting" },
-    { name: "Houses", href: "#houses" },
-    { name: "Landscaping", href: "#landscaping" },
-    { name: "Objects", href: "#objects" },
-    { name: "Publications", href: "#publications" },
-    { name: "Reports", href: "#reports" },
-    { name: "Residential", href: "#residential" },
-    { name: "Restoration", href: "#restoration" },
-    { name: "Urban Design", href: "#urban-design" },
+    { name: "Commercial", href: "/work/commercial" },
+    { name: "Conservation", href: "/work/conservation" },
+    { name: "Consulting", href: "/work/consulting" },
+    { name: "Houses Interiors", href: "/work/houses-interiors" },
+    { name: "Landscaping", href: "/work/landscaping" },
+    { name: "Objects", href: "/work/objects" },
+    { name: "Publications", href: "/work/publications" },
+    { name: "Reports", href: "/work/reports" },
+    { name: "Residential", href: "/work/residential" },
+    { name: "Restoration", href: "/work/restoration" },
   ];
 
   return (
@@ -95,35 +94,15 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
                       </Link>
 
                       {workNavItems.slice(1).map((item) => (
-                        <a
+                        <Link
                           key={item.name}
                           href={item.href}
-                          onClick={(e) => {
-                            // Only intercept in-page anchors
-                            if (item.href.startsWith('#')) {
-                              e.preventDefault();
-                              const target = document.querySelector(item.href);
-                              if (target) {
-                                const closeBtn = document.getElementById('close-sidebar');
-                                const sidebar = document.getElementById('sidebar');
-                                const overlay = document.getElementById('mobile-sidebar-overlay');
-                                const shouldCloseMobile = window.innerWidth < 1024 && closeBtn && sidebar && overlay;
-                                if (shouldCloseMobile) {
-                                  // Close then scroll after transition
-                                  closeBtn.click();
-                                  setTimeout(() => {
-                                    (target as HTMLElement).scrollIntoView({ behavior: 'smooth', block: 'start' });
-                                  }, 300);
-                                } else {
-                                  (target as HTMLElement).scrollIntoView({ behavior: 'smooth', block: 'start' });
-                                }
-                              }
-                            }
-                          }}
-                          className={`block text-[18px] lg:text-[23px] font-light text-[#3C3C34] hover:opacity-70 transition-opacity`}
+                          className={`block text-[18px] lg:text-[23px] font-light text-[#3C3C34] hover:opacity-70 transition-opacity ${
+                            pathname === item.href ? "opacity-60" : ""
+                          }`}
                         >
                           {item.name}
-                        </a>
+                        </Link>
                       ))}
                     </>
                   ) : (
