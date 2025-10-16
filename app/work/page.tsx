@@ -2,12 +2,12 @@ import SidebarLayout from '@/components/SidebarLayout';
 import ImageCarousel from '@/components/ImageCarousel';
 
 const houseImages = [
-  '/images/01 Houses(1).jpg',
-  '/images/02 Houses(1).jpg',
-  '/images/003 Houses(1).jpg',
-  '/images/04 Houses.JPG',
+  '/images/01 Houses (1).jpg',
+  '/images/02 Houses (1).jpg',
+  '/images/003 Houses (1).jpg',
+  '/images/04 Houses (1).JPG',
   '/images/05 Houses (1).jpg',
-  '/images/06 Houses(1).jpg',
+  '/images/06 Houses (1).jpg',
 ];
 
 const residentialImages = [
