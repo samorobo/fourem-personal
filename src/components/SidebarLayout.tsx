@@ -54,10 +54,42 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
   }, [pathname]);
 
   const mainNavItems = [
-    { name: "About", href: "/about" },
-    { name: "Work", href: "/work" },
-    { name: "Read", href: "/read" },
-    { name: "Contact", href: "/contact" },
+    { 
+      name: "About", 
+      href: "/about" 
+    },
+    { 
+      name: "Work", 
+      href: "/work" 
+    },
+    { 
+      name: "Read", 
+      href: "/about#read-section",
+      onClick: (e: React.MouseEvent, currentPath: string) => {
+        if (currentPath === '/about') {
+          e.preventDefault();
+          const readSection = document.getElementById('read-section');
+          if (readSection) {
+            readSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            if (isMenuOpen) toggleMenu();
+          }
+        }
+      }
+    },
+    { 
+      name: "Contact", 
+      href: "/about#contact-section",
+      onClick: (e: React.MouseEvent, currentPath: string) => {
+        if (currentPath === '/about') {
+          e.preventDefault();
+          const contactSection = document.getElementById('contact-section');
+          if (contactSection) {
+            contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            if (isMenuOpen) toggleMenu();
+          }
+        }
+      }
+    },
   ];
 
   const workNavItems = [
@@ -123,8 +155,7 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
               <div className="flex-1">
                 <div className="flex justify-between items-center mb-6 lg:mb-16">
                   <Link href="/" className="block">
-                    <h1 className={`${isWorkPage ? "text-[32px] lg:text-[40px]" : "text-[40px] lg:text-[48px]"} font-light text-[#3C3C34] leading-none tracking-tight`}>
-                      Fourem
+                    <h1 className={`${isWorkPage ? "text-[32px] lg:text-[40px]" : "mt-8 text-[40px] lg:text-[48px]"} font-light text-[#3C3C34] leading-none tracking-tight`}>                      Fourem
                     </h1>
                   </Link>
                   <button className="lg:hidden p-2" id="close-sidebar" onClick={toggleMenu}>
@@ -139,7 +170,7 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
                   {isWorkPage ? (
                     <>
                       {/* Back link */}
-                      <Link href="/" className="block -mt-4 lg:-mt-8 text-[18px] lg:text-[20px] font-light text-[#3C3C34] hover:opacity-70 transition-opacity">
+                      <Link href="/about" className="block -mt-4 lg:-mt-8 text-[18px] lg:text-[20px] font-light text-[#3C3C34] hover:opacity-70 transition-opacity">
                         ← Go back
                       </Link>
 
@@ -185,8 +216,9 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
                       <Link
                         key={item.name}
                         href={item.href}
-                        className={`block text-[13px] lg:text-[20px] font-light  text-[#3C3C34] hover:opacity-70 transition-opacity ${
-                          pathname === item.href ? "opacity-60" : ""
+                        onClick={(e) => item.onClick ? item.onClick(e, pathname) : null}
+                        className={`block text-[18px] lg:text-[20px] font-light text-[#3C3C34] hover:opacity-70 transition-opacity ${
+                          pathname.startsWith(item.href.split('#')[0]) ? "opacity-60" : ""
                         }`}
                       >
                         {item.name}

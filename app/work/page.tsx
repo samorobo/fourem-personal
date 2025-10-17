@@ -80,7 +80,6 @@ const publicationsImages = [
 const interiorsImages = [
   '/images/interiors 01.jpg',
   '/images/interiors 02.jpg',
-  '/images/interiors 03.jpg',
   '/images/interiors 004.jpg',
   '/images/interiors 05.jpg',
   '/images/interiors 06.jpg',
@@ -99,7 +98,7 @@ export default function WorkPage() {
     <SidebarLayout>
       <div className="-pr-12 py-16 pl-20">
         <div className="mb-20">
-          <h2 id="houses" className="text-right text-[40px] font-light text-[#3C3C34] mb-10 scroll-mt-24">
+          <h2 id="houses" className="text-right text-[30px] font-light text-[#3C3C34] mb-10 scroll-mt-24">
             Houses
           </h2>
           <div className="text-right">
@@ -114,7 +113,7 @@ export default function WorkPage() {
         </div>
 
         <div className="mb-20 mt-12">
-          <h2 id="residential" className="text-right text-[40px] font-light text-[#3C3C34] mb-10 scroll-mt-24">
+          <h2 id="residential" className="text-right text-[30px] font-light text-[#3C3C34] mb-10 scroll-mt-24">
             Residential
           </h2>
           <div className="text-right">
@@ -133,7 +132,7 @@ export default function WorkPage() {
         </div>
 
         <div className="mb-20 mt-12">
-          <h2 id="commercial" className="text-right text-[40px] font-light text-[#3C3C34] mb-10 scroll-mt-24">
+          <h2 id="commercial" className="text-right text-[30px] font-light text-[#3C3C34] mb-10 scroll-mt-24">
             Commercial
           </h2>
           <div className="text-right">
@@ -149,7 +148,7 @@ export default function WorkPage() {
         </div>
 
         <div className="mb-20 mt-12">
-          <h2 id="conservation" className="text-right text-[40px] font-light text-[#3C3C34] mb-10 scroll-mt-24">
+          <h2 id="conservation" className="text-right text-[30px] font-light text-[#3C3C34] mb-10 scroll-mt-24">
             Conservation
           </h2>
           <div className="text-right">
@@ -168,7 +167,7 @@ export default function WorkPage() {
         </div>
         
         <div className="mb-20 mt-12">
-          <h2 id="restoration" className="text-right text-[40px] font-light text-[#3C3C34] mb-10 scroll-mt-24">
+          <h2 id="restoration" className="text-right text-[30px] font-light text-[#3C3C34] mb-10 scroll-mt-24">
             Restoration
           </h2>
           <div className="text-right">
@@ -187,7 +186,7 @@ export default function WorkPage() {
         </div>
 
         <div className="mb-20 mt-12">
-          <h2 id="urban-design" className="text-right text-[40px] font-light text-[#3C3C34] mb-10 scroll-mt-24">
+          <h2 id="urban-design" className="text-right text-[30px] font-light text-[#3C3C34] mb-10 scroll-mt-24">
             Urban Design
           </h2>
           <div className="text-right">
@@ -205,8 +204,8 @@ export default function WorkPage() {
         </div>
           
         <div className="mb-20 mt-12">
-          <h2 id="landscaping" className="text-right text-[40px] font-light text-[#3C3C34] mb-10 scroll-mt-24">
-            LandScaping
+          <h2 id="landscaping" className="text-right text-[30px] font-light text-[#3C3C34] mb-10 scroll-mt-24">
+            Landscaping
           </h2>
           <div className="text-right">
           <p className='text-[15px] leading-[1.2] text-[#848484] mb-2'>Fourem are experts in urban landscaping and understand the intangible character of the</p>
@@ -222,7 +221,7 @@ export default function WorkPage() {
 
 
         <div className="mb-20 mt-12">
-          <h2 id="consulting" className="text-right text-[40px] font-light text-[#3C3C34] mb-10 scroll-mt-24">
+          <h2 id="consulting" className="text-right text-[30px] font-light text-[#3C3C34] mb-10 scroll-mt-24">
           Consulting
           </h2>
           <div className="text-right">
@@ -242,7 +241,7 @@ export default function WorkPage() {
 
 
         <div className="mb-20 mt-12">
-          <h2 id="reports" className="text-right text-[40px] font-light text-[#3C3C34] mb-10 scroll-mt-24">
+          <h2 id="reports" className="text-right text-[30px] font-light text-[#3C3C34] mb-10 scroll-mt-24">
             Reports
           </h2>
           <div className="text-right">
@@ -262,7 +261,7 @@ export default function WorkPage() {
 
 
         <div className="mb-20 mt-12">
-          <h2 id="publications" className="text-right text-[40px] font-light text-[#3C3C34] mb-10 scroll-mt-24">
+          <h2 id="publications" className="text-right text-[30px] font-light text-[#3C3C34] mb-10 scroll-mt-24">
             Publications
           </h2>
           <div className="text-right">
@@ -280,7 +279,7 @@ export default function WorkPage() {
 
 
         <div className="mb-20 mt-12">
-          <h2 id="interiors" className="text-right text-[40px] font-light text-[#3C3C34] mb-10 scroll-mt-24">
+          <h2 id="interiors" className="text-right text-[30px] font-light text-[#3C3C34] mb-10 scroll-mt-24">
             Interiors
           </h2>
           <div className="text-right">
@@ -297,7 +296,7 @@ export default function WorkPage() {
         </div>
 
         <div className="mb-20 mt-12">
-          <h2 id="objects" className="text-right text-[40px] font-light text-[#3C3C34] mb-10 scroll-mt-24">
+          <h2 id="objects" className="text-right text-[30px] font-light text-[#3C3C34] mb-10 scroll-mt-24">
             Objects
           </h2>
           <div className="text-right">

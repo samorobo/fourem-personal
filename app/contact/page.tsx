@@ -3,7 +3,7 @@ import SidebarLayout from '@/components/SidebarLayout';
 export default function ContactPage() {
   return (
     <SidebarLayout>
-      <div className="relative pr-16 py-16 pl-20">
+      <div className="relative pr-16 py-16 pl-20 -mr-24">
         {/* Floating See all button */}
         <div className="fixed top-[70px] right-16 z-10">
           <a href="/read" className="inline-block bg-[#3C3C34] text-white px-7 py-2.5 rounded-full text-[13px] hover:bg-[#2C2C24] transition-colors">

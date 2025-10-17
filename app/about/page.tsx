@@ -177,30 +177,30 @@ export default function AboutPage() {
         </div>
 
         {/* Read Section */}
-        <div className="mb-20 -mr-8 mt-40 ">
-          <h2 className="text-right text-[20px]  font-medium text-[#3C3C34] mb-10 pr-4 -mr-1">
+        <div  className="mb-20 mt-12 px-4 lg:px-0 lg:-mr-8">
+          <h2 id="read-section" className="text-right text-[20px]  font-medium text-[#3C3C34] mb-10 pr-4 mr-2">
             Read
           </h2>
           <div className="text-right -mt-4">
-            <h3 className="text-[30px] font-sans font-normal text-[#3C3C34] mb-4 mr-2">
+            <h3 className="text-[30px] font-sans font-normal text-[#3C3C34] mb-4 mr-4">
               Ireland and the New Architecture
             </h3>
-            <p className="text-[16px] text-[#848484] mb-8 -mt-2 mr-2">
+            <p className="text-[16px] text-[#848484] mb-8 -mt-2 mr-4">
               Hegarty, John, Streetscapes of County Cork, Cork County Council, 2023 - page 7 - 9
             </p>
-            <a href="/read" className="inline-block  mr-2 bg-[#4A4A3E] text-white px-6 py-3 rounded-full text-[13px] hover:bg-[#3C3C34] transition-colors">
+            <a href="/read" className="inline-block  mr-4 bg-[#4A4A3E] text-white px-6 py-3 rounded-full text-[13px] hover:bg-[#3C3C34] transition-colors">
               See all → 
             </a>
           </div>
         </div>
 
         {/* Contact Us Section */}
-        <div className="pb-20 -mr-8 mt-">
+        <div id="contact-section" className="pb-20 -mr-4 mt-36">
           <h2 className="text-right text-[40px] font-light text-[#3C3C34] mb-10 pr-0 -mr-1">
             Contact Us
           </h2>
           <div className="text-right">
-            <h3 className="text-[32px] font-light text-[#3C3C34] mb-8 ">
+            <h3 className="text-[32px] -mt-4 font-light text-[#3C3C34] mb-8 ">
               Fourem
             </h3>
             <div className=" text-[#848484] space-y-0 leading-[1.6] ">
