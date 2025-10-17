@@ -25,7 +25,7 @@ const houseImages = [
 // ];
 
 const conservationImages = [
-  '/images/01 Conservation.jpg',
+'/images/01 Conservation  (1).jpg',
   '/images/02 Conservation.jpg',
   '/images/03 Conservation.jpg',
   '/images/04 conservation.jpg',

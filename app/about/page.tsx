@@ -54,10 +54,10 @@ export default function AboutPage() {
 
         {/* Consultancy Section */}
         <div className="mb-20">
-          <h2 className="text-right text-[40px] font-light text-[#3C3C34] mb-10 pr-4">
+          <h2 className="text-right text-[40px] font-light text-[#3C3C34] mb-10 pr-4 -mr-12">
             Consultancy
           </h2>
-          <div className="text-right">
+          <div className="text-right -mr-8">
             <p className='text-[15px] leading-[1.4] text-[#848484] mb-2 mr-6'>
             The practice provides consultancy and specifications for works relating to protected structures and
             </p>
@@ -70,7 +70,7 @@ export default function AboutPage() {
         </div>
 
         {/* Read Section */}
-        <div className="mb-20">
+        <div className="mb-20 -mr-8">
           <h2 className="text-right text-[20px] font-normal text-[#3C3C34] mb-10 pr-4">
             Read
           </h2>
@@ -88,15 +88,15 @@ export default function AboutPage() {
         </div>
 
         {/* Contact Us Section */}
-        <div className="pb-20">
+        <div className="pb-20 ">
           <h2 className="text-right  text-[40px] font-light text-[#3C3C34] mb-10 pr-0 -mr-8">
             Contact Us
           </h2>
           <div className="text-right">
-            <h3 className="text-[32px] font-light text-[#3C3C34] mb-8">
+            <h3 className="text-[32px] font-light text-[#3C3C34] mb-8 -mr-8">
               Fourem
             </h3>
-            <div className="text-[15px] text-[#848484] space-y-0 leading-[1.6]">
+            <div className="text-[15px] text-[#848484] space-y-0 leading-[1.6] -mr-8">
               <p>9 Sidney Place</p>
               <p>Wellington Road</p>
               <p>Cork</p>

@@ -22,18 +22,16 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
 
   const workNavItems = [
     { name: "Go back", type: "back", id: "" },
-    { name: "Houses", type: "section", id: "houses" },
-    { name: "Residential", type: "section", id: "residential" },
     { name: "Commercial", type: "section", id: "commercial" },
     { name: "Conservation", type: "section", id: "conservation" },
-    { name: "Restoration", type: "section", id: "restoration" },
-    { name: "Urban Design", type: "section", id: "urban-design" },
-    { name: "Landscaping", type: "section", id: "landscaping" },
     { name: "Consulting", type: "section", id: "consulting" },
-    { name: "Reports", type: "section", id: "reports" },
-    { name: "Publications", type: "section", id: "publications" },
-    { name: "Interiors", type: "section", id: "interiors" },
+    { name: "Houses Interiors", type: "section", id: "interiors" },
+    { name: "Landscaping", type: "section", id: "landscaping" },
     { name: "Objects", type: "section", id: "objects" },
+    { name: "Publications", type: "section", id: "publications" },
+    { name: "Reports", type: "section", id: "reports" },
+    { name: "Residential", type: "section", id: "residential" },
+    { name: "Restoration", type: "section", id: "restoration" },
   ] as const;
 
   return (
@@ -41,11 +39,20 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
       {/* Mobile Menu Button - Hidden on desktop */}
       {!isHomePage && (
         <div className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-white h-[50px] flex items-center justify-between px-4 border-b border-[#ddd]">
-          <button className="p-2" id="mobile-menu-button">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
-            </svg>
-          </button>
+          {isWorkPage ? (
+            <Link href="/about" className="flex items-center text-[#3C3C34] hover:opacity-70 transition-opacity">
+              <svg className="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+              Back
+            </Link>
+          ) : (
+            <button className="p-2" id="mobile-menu-button">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+              </svg>
+            </button>
+          )}
           <div className="text-xs text-[#3C3C34]">
             <span className="underline">CEIM DIGITAL</span>
           </div>
@@ -125,7 +132,8 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
                                   setTimeout(() => target.classList.remove('scroll-highlight'), 1000);
                                 }
                               }}
-                              className="block text-[18px] lg:text-[23px] font-light text-[#3C3C34] hover:opacity-70 transition-opacity"
+                              className="block text-[18px] lg:text-[23px] font-light text-[#3C3C34] hover:opacity-70 transition-opacity font-['Times_New_Roman']"
+                              style={{ margin: '0.35rem 0' }}
                             >
                               {item.name}
                             </Link>
