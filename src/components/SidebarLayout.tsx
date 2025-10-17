@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState, useEffect } from "react";
 
 interface SidebarLayoutProps {
   children: React.ReactNode;
@@ -9,9 +10,48 @@ interface SidebarLayoutProps {
 
 export default function SidebarLayout({ children }: SidebarLayoutProps) {
   const pathname = usePathname();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const isWorkPage = pathname.startsWith("/work");
   const isHomePage = pathname === "/";
+
+  // Toggle mobile menu
+  const toggleMenu = () => {
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('mobile-sidebar-overlay');
+    
+    if (isMenuOpen) {
+      document.body.style.overflow = '';
+      overlay?.classList.add('hidden');
+      sidebar?.classList.add('-translate-x-full');
+    } else {
+      document.body.style.overflow = 'hidden';
+      overlay?.classList.remove('hidden');
+      sidebar?.classList.remove('-translate-x-full');
+    }
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  // Close menu when route changes
+  useEffect(() => {
+    const closeMenu = () => {
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('mobile-sidebar-overlay');
+      
+      document.body.style.overflow = '';
+      overlay?.classList.add('hidden');
+      sidebar?.classList.add('-translate-x-full');
+      setIsMenuOpen(false);
+    };
+
+    // Close menu on route change
+    const handleRouteChange = () => closeMenu();
+    window.addEventListener('popstate', handleRouteChange);
+    
+    return () => {
+      window.removeEventListener('popstate', handleRouteChange);
+    };
+  }, [pathname]);
 
   const mainNavItems = [
     { name: "About", href: "/about" },
@@ -47,7 +87,7 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
               Back
             </Link>
           ) : (
-            <button className="p-2" id="mobile-menu-button">
+            <button className="p-2" id="mobile-menu-button" onClick={toggleMenu}>
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
               </svg>
@@ -87,7 +127,7 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
                       Fourem
                     </h1>
                   </Link>
-                  <button className="lg:hidden p-2" id="close-sidebar">
+                  <button className="lg:hidden p-2" id="close-sidebar" onClick={toggleMenu}>
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                     </svg>
@@ -145,7 +185,7 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
                       <Link
                         key={item.name}
                         href={item.href}
-                        className={`block text-[20px] lg:text-[25px] font-light text-[#3C3C34] hover:opacity-70 transition-opacity ${
+                        className={`block text-[13px] lg:text-[20px] font-light  text-[#3C3C34] hover:opacity-70 transition-opacity ${
                           pathname === item.href ? "opacity-60" : ""
                         }`}
                       >
