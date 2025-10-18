@@ -62,49 +62,46 @@ export default function AboutPage() {
           </div>
 
           {/* Read Section - Mobile */}
-          <div className="mb-12">
-            <h2 className="text-left text-[18px] font-medium text-[#3C3C34] mb-6 px-2">
-              Read
-            </h2>
-            <div className="text-left px-2">
-              <h3 className="text-[24px] font-normal text-[#3C3C34] mb-3">
-                Ireland and the New Architecture
-              </h3>
-              <p className="text-[14px] text-[#848484] mb-6">
-                Hegarty, John, Streetscapes of County Cork, Cork County Council, 2023 - page 7 - 9
-              </p>
-              <a href="/read" className="inline-block bg-[#4A4A3E] text-white px-8 py-3 rounded-full text-[14px] hover:bg-[#3C3C34] transition-colors w-full text-center">
+          <div id="read-section" className="mb-12">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-[18px] font-medium text-[#3C3C34] px-2">
+                Read
+              </h2>
+              <a href="/read" className="text-[13px] text-[#3C3C34] hover:opacity-70">
                 See all →
               </a>
+            </div>
+            <div className="bg-whimte p-4 rounded-lg">
+              <h3 className="text-[20px] font-normal text-[#3C3C34] mb-2">
+                Ireland and the New Architecture
+              </h3>
+              <p className="text-[14px] text-[#848484] mb-4">
+                Hegarty, John, Streetscapes of County Cork, Cork County Council, 2023 - page 7 - 9
+              </p>
             </div>
           </div>
 
           {/* Contact Us Section - Mobile */}
-          <div className="pb-12">
-            <h2 className="text-left text-[24px] font-medium text-[#3C3C34] mb-6 px-2">
+          <div id="contact-section" className="pb-12">
+            <h2 className="text-left text-[24px] font-light text-[#3C3C34] mb-6 px-2">
               Contact Us
             </h2>
-            <div className="text-left px-2">
-              <h3 className="text-[20px] font-medium text-[#3C3C34] mb-4">
+            <div className="bg-whiote p-4 rounded-lg">
+              <h3 className="text-[24px] font-light text-[#3C3C34] mb-4">
                 Fourem
               </h3>
-              <div className="text-[#848484] space-y-1 text-[14px]">
+              <div className="text-[#848484] space-y-2">
                 <p>9 Sidney Place</p>
                 <p>Wellington Road</p>
                 <p>Cork</p>
                 <p>Ireland</p>
                 <p>T23KX89</p>
-                <p className="mt-3">Phone Number: 021 4550322</p>
-                <p className="mt-2">
-                  <a href="mailto:post@fourem.ie" className="hover:text-[#3C3C34]">
+                <p className="pt-2">Phone Number: 021 4550322</p>
+                <p>
+                  <a href="mailto:post@fourem.ie" className="text-[#3C3C34] hover:opacity-70">
                     post@fourem.ie
                   </a>
                 </p>
-                <p className="mt-4 leading-[1.5]">Form Four Limited, t/a Fourem</p>
-                <p className="leading-[1.5]">
-                  Registered In Ireland No: 337573 at 9a Sidney Place, Wellington Road, Cork T23 KX89 Director: John Hegarty
-                </p>
-                <p className="mt-1 leading-[1.5]">TIN: IE 6357573T</p>
               </div>
             </div>
           </div>
@@ -114,7 +111,7 @@ export default function AboutPage() {
       {/* Desktop View - Visible only on desktop devices */}
       <div className="hidden md:block max-w-[1440px] mx-auto">
         {/* About Us Section */}
-        <div className="mb-20 relative -mr-6">
+        <div id="about-section" className="mb-20 relative -mr-6">
           <h4 className="text-right text-[20px] -mr-6 font-normal text-[#3C3C34] mb-10 pr-4">
             About Us
           </h4>

@@ -53,42 +53,54 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
     };
   }, [pathname]);
 
+  const handleNavigation = (e: React.MouseEvent, sectionId: string) => {
+    e.preventDefault();
+    
+    // If we're not on the about page, navigate to the about page with the section hash
+    if (!pathname.startsWith('/about')) {
+      window.location.href = `/about#${sectionId}`;
+      return;
+    }
+
+    // Close mobile menu if open
+    if (isMenuOpen) {
+      toggleMenu();
+    }
+
+    // Scroll to the section
+    const section = document.getElementById(sectionId);
+    if (section) {
+      // Small timeout to ensure the menu is closed before scrolling
+      setTimeout(() => {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Update the URL without triggering a page reload
+        window.history.pushState({}, '', `#${sectionId}`);
+      }, 100);
+    }
+  };
+
   const mainNavItems = [
     { 
       name: "About", 
-      href: "/about" 
+      href: "/about#about-section",
+      sectionId: "about-section",
+      onClick: (e: React.MouseEvent) => handleNavigation(e, 'about-section')
     },
     { 
       name: "Work", 
-      href: "/work" 
+      href: "/work"
     },
     { 
       name: "Read", 
       href: "/about#read-section",
-      onClick: (e: React.MouseEvent, currentPath: string) => {
-        if (currentPath === '/about') {
-          e.preventDefault();
-          const readSection = document.getElementById('read-section');
-          if (readSection) {
-            readSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            if (isMenuOpen) toggleMenu();
-          }
-        }
-      }
+      sectionId: "read-section",
+      onClick: (e: React.MouseEvent) => handleNavigation(e, 'read-section')
     },
     { 
       name: "Contact", 
       href: "/about#contact-section",
-      onClick: (e: React.MouseEvent, currentPath: string) => {
-        if (currentPath === '/about') {
-          e.preventDefault();
-          const contactSection = document.getElementById('contact-section');
-          if (contactSection) {
-            contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            if (isMenuOpen) toggleMenu();
-          }
-        }
-      }
+      sectionId: "contact-section",
+      onClick: (e: React.MouseEvent) => handleNavigation(e, 'contact-section')
     },
   ];
 
@@ -216,7 +228,12 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
                       <Link
                         key={item.name}
                         href={item.href}
-                        onClick={(e) => item.onClick ? item.onClick(e, pathname) : null}
+                        onClick={item.onClick || ((e) => {
+                          if (isMenuOpen) {
+                            e.preventDefault();
+                            toggleMenu();
+                          }
+                        })}
                         className={`block text-[18px] lg:text-[20px] font-light text-[#3C3C34] hover:opacity-70 transition-opacity ${
                           pathname.startsWith(item.href.split('#')[0]) ? "opacity-60" : ""
                         }`}
