@@ -159,7 +159,7 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
         {/* Mobile Sidebar Overlay */}
         <div id="mobile-sidebar-overlay" className="hidden fixed inset-0 bg-black bg-opacity-50 z-40"></div>
         
-        {/* Fixed Sidebar */}
+        
         <div className="fixed top-0 left-0 h-screen w-[240px] bg-[#E4EEF4] z-40 transform -translate-x-full lg:translate-x-0 lg:top-[50px] lg:h-[calc(100vh-50px)] transition-transform duration-300" 
              id="sidebar">
           <div className="h-full overflow-y-auto no-scrollbar">
@@ -177,11 +177,11 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
                   </button>
                 </div>
 
-                {/* Sidebar Navigation */}
+                
                 <nav className={`flex flex-col ${isWorkPage ? "space-y-8 lg:space-y-16 mt-4 lg:mt-6" : "space-y-4 lg:space-y-6 mt-2"}`}>
                   {isWorkPage ? (
                     <>
-                      {/* Back link */}
+                      
                       <Link href="/about" className="block -mt-4 lg:-mt-8 text-[18px] lg:text-[20px] font-light text-[#3C3C34] hover:opacity-70 transition-opacity">
                         ← Go back
                       </Link>
@@ -197,7 +197,7 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
                               href={defaultHref}
                               prefetch={false}
                               onClick={(e) => {
-                                // If we are on the work page, intercept and do smooth scrolling
+                                // If user is on the work page, intercept and do smooth scrolling
                                 if (pathname === "/work") {
                                   e.preventDefault();
                                   const target = document.getElementById(item.id);
@@ -229,8 +229,8 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
                         key={item.name}
                         href={item.href}
                         onClick={item.onClick || ((e) => {
+                          // Close the mobile menu if open, but allow navigation to proceed
                           if (isMenuOpen) {
-                            e.preventDefault();
                             toggleMenu();
                           }
                         })}
@@ -245,7 +245,7 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
                 </nav>
               </div>
               
-              {/* Footer for the sidebar */}
+              
               <div className="hidden lg:block mt-auto pt-8 text-xs text-[#3C3C34] opacity-60">
                 © {new Date().getFullYear()} Fourem
               </div>
@@ -254,7 +254,7 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
         </div>
 
         {/* Scrollable Main Content */}
-        <main id="work-content" className="flex-1 w-full lg:ml-[240px] px-4 lg:pl-8 lg:pr-16 py-4 lg:py-8 overflow-y-auto no-scrollbar">
+        <main id="work-content" className="flex-1 w-full lg:ml-[240px] px-4 lg:pl-8 lg:pr-16 py-4 lg:py-8">
           {children}
         </main>
       </div>

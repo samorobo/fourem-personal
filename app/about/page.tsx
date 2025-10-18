@@ -5,10 +5,9 @@ import Link from 'next/link';
 export default function AboutPage() {
   return (
     <SidebarLayout>
-      {/* Mobile View - Visible only on mobile devices */}
+  
       <div className="block md:hidden">
         <div className="w-full px-4 py-8">
-          {/* About Us Section - Mobile */}
           <div className="mb-12">
             <h4 className="text-left text-[18px] font-normal text-[#3C3C34] mb-6 px-2">
               About Us
@@ -24,7 +23,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Architecture Section - Mobile */}
+          
           <div className="mb-12">
             <h2 className="text-left text-[24px] font-medium text-[#3C3C34] mb-6 px-2">
               Architecture
@@ -46,7 +45,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Consultancy Section - Mobile */}
+         
           <div className="mb-12">
             <h2 className="text-left text-[24px] font-medium text-[#3C3C34] mb-6 px-2">
               Consultancy
@@ -61,7 +60,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Read Section - Mobile */}
+         
           <div id="read-section" className="mb-12">
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-[18px] font-medium text-[#3C3C34] px-2">
@@ -81,7 +80,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Contact Us Section - Mobile */}
+          
           <div id="contact-section" className="pb-12">
             <h2 className="text-left text-[24px] font-light text-[#3C3C34] mb-6 px-2">
               Contact Us
@@ -110,7 +109,7 @@ export default function AboutPage() {
 
       {/* Desktop View - Visible only on desktop devices */}
       <div className="hidden md:block max-w-[1440px] mx-auto">
-        {/* About Us Section */}
+        
         <div id="about-section" className="mb-20 relative -mr-6">
           <h4 className="text-right text-[20px] -mr-6 font-normal text-[#3C3C34] mb-10 pr-4">
             About Us
@@ -118,7 +117,7 @@ export default function AboutPage() {
           <div className="w-full max-w-[650px] ml-auto relative">
             <div className="relative -mt-4 w-full h-[300px] bg-gray-100 ">
               <Image
-                src="/images/About.avif"  // Replace with your actual image path
+                src="/images/About.avif"  
                 alt="Architecture Detail"
                 fill
                 className="object-cover"
@@ -129,7 +128,7 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Architecture Section */}
+       
         <div className="mb-20 -mt-12">
           <h2 className="text-right mr-44 text-[30px] font-medium text-[#3C3C34] mb-10 pr-4">
             Architecture
@@ -156,7 +155,7 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Consultancy Section */}
+        
         <div className="mb-20">
           <h2 className="text-right text-[30px] font-light text-[#3C3C34] mb-10 pr-4 -mr-7">
             Consultancy
@@ -173,9 +172,9 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Read Section */}
-        <div  className="mb-20 mt-12 px-4 lg:px-0 lg:-mr-8">
-          <h2 id="read-section" className="text-right text-[20px]  font-medium text-[#3C3C34] mb-10 pr-4 mr-2">
+        
+        <div id="read-section" className="mb-20 mt-12 px-4 lg:px-0 lg:-mr-8">
+          <h2 className="text-right text-[20px]  font-medium text-[#3C3C34] mb-10 pr-4 mr-2">
             Read
           </h2>
           <div className="text-right -mt-4">
@@ -191,7 +190,7 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Contact Us Section */}
+        
         <div id="contact-section" className="pb-20 -mr-4 mt-36">
           <h2 className="text-right text-[40px] font-light text-[#3C3C34] mb-10 pr-0 -mr-1">
             Contact Us
