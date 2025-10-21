@@ -53,6 +53,22 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
     };
   }, [pathname]);
 
+  // Handle hash-based scrolling on page load
+  useEffect(() => {
+    const hash = window.location.hash.substring(1); // Remove the '#' character
+    if (hash) {
+      setTimeout(() => {
+        const isMobile = window.innerWidth < 1024;
+        const targetSectionId = isMobile ? `${hash}-mobile` : hash;
+        const section = document.getElementById(targetSectionId);
+        
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 300); // Delay to ensure DOM is fully loaded
+    }
+  }, [pathname]);
+
   const handleNavigation = (e: React.MouseEvent, sectionId: string) => {
     e.preventDefault();
     
@@ -67,13 +83,17 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
       toggleMenu();
     }
 
+    // Determine the correct section ID based on screen size
+    const isMobile = window.innerWidth < 1024;
+    const targetSectionId = isMobile ? `${sectionId}-mobile` : sectionId;
+
     // Scroll to the section
-    const section = document.getElementById(sectionId);
+    const section = document.getElementById(targetSectionId);
     if (section) {
       // Small timeout to ensure the menu is closed before scrolling
       setTimeout(() => {
         section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        // Update the URL without triggering a page reload
+        // Update the URL without triggering a page reload (use base section name)
         window.history.pushState({}, '', `#${sectionId}`);
       }, 100);
     }

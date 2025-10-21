@@ -8,7 +8,7 @@ export default function AboutPage() {
   
       <div className="block md:hidden">
         <div className="w-full px-4 py-8">
-          <div className="mb-12">
+          <div id="about-section-mobile" className="mb-12">
             <h4 className="text-left text-[18px] font-normal text-[#3C3C34] mb-6 px-2">
               About Us
             </h4>
@@ -61,7 +61,7 @@ export default function AboutPage() {
           </div>
 
          
-          <div id="read-section" className="mb-12">
+          <div id="read-section-mobile" className="mb-12">
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-[18px] font-medium text-[#3C3C34] px-2">
                 Read
@@ -81,7 +81,7 @@ export default function AboutPage() {
           </div>
 
           
-          <div id="contact-section" className="pb-12">
+          <div id="contact-section-mobile" className="pb-12">
             <h2 className="text-left text-[24px] font-light text-[#3C3C34] mb-6 px-2">
               Contact Us
             </h2>
