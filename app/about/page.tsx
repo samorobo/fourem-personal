@@ -67,10 +67,10 @@ const objectsImages = [
   '/images/Ballinora church18.jpg',
 ];
 
-function ImageCarousel({ images }) {
-  const scrollContainerRef = useRef(null);
+function ImageCarousel({ images }: { images: string[] }) {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  const scroll = (direction) => {
+  const scroll = (direction: 'prev' | 'next') => {
     if (scrollContainerRef.current) {
       const scrollAmount = 400; // Approximate width of one image + gap
       const newScrollPosition = scrollContainerRef.current.scrollLeft + (direction === 'next' ? scrollAmount : -scrollAmount);
@@ -82,11 +82,11 @@ function ImageCarousel({ images }) {
   };
 
   return (
-    <div className="relative w-full h-[200px] group">
+    <div className="relative bg-[#E8E8E8] w-full h-[200px] group">
       {/* Scrollable container */}
       <div 
         ref={scrollContainerRef}
-        className="flex gap-4 overflow-x-auto h-full scrollbar-hide"
+        className="flex gap-4 bg-[#E8E8E8] overflow-x-auto h-full scrollbar-hide"
         style={{ 
           scrollbarWidth: 'none',
           msOverflowStyle: 'none'
@@ -137,10 +137,7 @@ function ImageCarousel({ images }) {
 }
 
 export default function UnifiedAboutPage() {
-  const [showWorkSidebar, setShowWorkSidebar] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(false);
-  const workSectionRef = useRef(null);
 
   const workCategories = [
     { id: 'houses', label: 'Houses' },
@@ -157,42 +154,8 @@ export default function UnifiedAboutPage() {
     { id: 'objects', label: 'Objects' }
   ];
 
-  useEffect(() => {
-    // Check if desktop on mount and resize
-    const checkDesktop = () => {
-      setIsDesktop(window.innerWidth >= 1024);
-    };
-    
-    checkDesktop();
-    window.addEventListener('resize', checkDesktop);
-    
-    return () => window.removeEventListener('resize', checkDesktop);
-  }, []);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      // Check if user is scrolled within the work section (Houses to Objects)
-      const housesElement = document.getElementById('houses');
-      const objectsElement = document.getElementById('objects');
-      
-      if (housesElement && objectsElement) {
-        const housesRect = housesElement.getBoundingClientRect();
-        const objectsRect = objectsElement.getBoundingClientRect();
-        
-        // Show sidebar if the Houses section has started appearing on screen
-        // and we haven't scrolled past the Objects section
-        const isInWorkSection = housesRect.top <= window.innerHeight * 0.5 && objectsRect.bottom > 100;
-        setShowWorkSidebar(isInWorkSection);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    // Initial check with a slight delay to ensure DOM is ready
-    setTimeout(handleScroll, 100);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const scrollToSection = (id) => {
+  const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -201,10 +164,10 @@ export default function UnifiedAboutPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#E8E8E8]">
       {/* Fixed Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
-        <nav className="max-w-[1440px] mx-auto px-6 lg:px-12 py-4 flex justify-end items-center gap-8">
+        <nav className="hidden lg:flex max-w-[1440px] mx-auto px-6 lg:px-12 py-4 justify-end items-center gap-8">
           <button
             onClick={() => scrollToSection('about-section')}
             className="text-black hover:opacity-70 text-[14px] font-medium transition-opacity"
@@ -235,8 +198,12 @@ export default function UnifiedAboutPage() {
       {/* Mobile Menu Button */}
       <button
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        className="lg:hidden fixed top-4 right-6 z-[60] bg-white text-black px-4 py-2 rounded-full text-sm shadow-md"
+        className="lg:hidden fixed top-4 right-6 z-[60] bg-white text-black px-4 py-2.5 rounded-full text-sm shadow-md flex items-center gap-2 hover:bg-gray-50 transition-colors"
+        aria-label="Open menu"
       >
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
         Menu
       </button>
 
@@ -254,7 +221,7 @@ export default function UnifiedAboutPage() {
 
       {/* Work Section Sidebar */}
       <WorkSidebar 
-        isVisible={showWorkSidebar} 
+        isVisible={true} 
         onNavigate={scrollToSection}
       />
 
@@ -268,10 +235,10 @@ export default function UnifiedAboutPage() {
 
 <div className="max-w-[1440px] mx-auto px-6 lg:px-12 pt-24 pb-20">
         <div id="about-section" className="mb-20 relative">
-          <h4 className="text-right text-[20px] font-normal text-[#3C3C34] mb-10 pr-4">
+          <h4 className="text-left lg:text-right text-[20px] font-normal text-[#3C3C34] mb-10 lg:pr-4">
             About Us
           </h4>
-          <div className="w-full max-w-[650px] ml-auto relative">
+          <div className="w-full lg:max-w-[650px] lg:ml-auto relative">
             <div className="relative w-full h-[300px] bg-gray-100 overflow-hidden">
               <img
                 src="/images/About.avif"
@@ -283,10 +250,20 @@ export default function UnifiedAboutPage() {
         </div>
 
         <div className="mb-20">
-          <h2 className="text-right text-[30px] font-medium text-[#3C3C34] mb-10 pr-4">
+          <h2 className="text-left lg:text-right text-[30px] font-medium text-[#3C3C34] mb-10 lg:pr-4">
             Architecture
           </h2>
-          <div className="text-right">
+          {/* Mobile view - flowing paragraphs */}
+          <div className="lg:hidden text-left">
+            <p className="text-[15px] leading-[1.6] text-[#848484] mb-4">
+              Fourem creates rigorous design solutions, rooted in context, that are balanced, economical and authentic. Fourem seek opportunity to create multiple benefits for their clients in every design decision. The results are of exceptional benefit, economy, beauty and wellbeing. Fourem create beautiful works from large scale residential projects to small buildings
+            </p>
+            <p className="text-[15px] leading-[1.6] text-[#848484]">
+              Good design begins with economy. All elements of nature represent economy as all things exist to suit their purpose. Economy pares down elements to their true necessity and combines focused consideration to create a final form. Beauty is the result. Everybody recognises good design. Fourem produce it
+            </p>
+          </div>
+          {/* Desktop view - original split lines */}
+          <div className="hidden lg:block text-right">
             <p className="text-[15px] leading-[1.4] text-[#848484] mb-2">
               Fourem creates rigorous design solutions, rooted in context, that are balanced, economical and
             </p>
@@ -315,10 +292,17 @@ export default function UnifiedAboutPage() {
         </div>
 
         <div className="mb-20">
-          <h2 className="text-right text-[30px] font-light text-[#3C3C34] mb-10 pr-4">
+          <h2 className="text-left lg:text-right text-[30px] font-light text-[#3C3C34] mb-10 lg:pr-4">
             Consultancy
           </h2>
-          <div className="text-right">
+          {/* Mobile view */}
+          <div className="lg:hidden text-left">
+            <p className="text-[15px] leading-[1.6] text-[#848484]">
+              The practice provides consultancy and specifications for works relating to protected structures and protected urban landscapes. They provide relevant experience in the area of regeneration, urban landscaping, domestic and non-domestic building design, commissioning of works, feasibility, impact assessment & planning.
+            </p>
+          </div>
+          {/* Desktop view */}
+          <div className="hidden lg:block text-right">
             <p className="text-[15px] leading-[1.4] text-[#848484] mb-2">
               The practice provides consultancy and specifications for works relating to protected structures and
             </p>
@@ -334,12 +318,19 @@ export default function UnifiedAboutPage() {
           </div>
         </div>
 
-        <div id="work-section" ref={workSectionRef} className="scroll-mt-24">
+        <div id="work-section" className="scroll-mt-24">
           <div id="houses" className="mb-20 scroll-mt-24">
-            <h2 className="text-right text-[30px] font-light text-[#3C3C34] mb-10">
+            <h2 className="text-left lg:text-right text-[30px] font-light text-[#3C3C34] mb-10">
               Houses
             </h2>
-            <div className="text-right mb-8">
+            {/* Mobile */}
+            <div className="lg:hidden text-left mb-8">
+              <p className="text-[15px] leading-[1.6] text-[#848484]">
+                Fourem seek design solutions that ensure economical results, balancing approach to create inspiring places to live. They create enduring architecture that promotes wellbeing, is grounded in the landscape and focuses on peace and serenity internally.
+              </p>
+            </div>
+            {/* Desktop */}
+            <div className="hidden lg:block text-right mb-8">
               <p className="text-[15px] leading-[1.2] text-[#848484] mb-2">
                 Fourem seek design solutions that ensure economical results, balancing approach to
               </p>
@@ -350,16 +341,23 @@ export default function UnifiedAboutPage() {
                 wellbeing, is grounded in the landscape and focuses on peace and serenity internally.
               </p>
             </div>
-            <div className="w-full max-w-[650px] ml-auto">
+            <div className="w-full lg:max-w-[650px] lg:ml-auto">
               <ImageCarousel images={houseImages} />
             </div>
           </div>
 
           <div id="residential" className="mb-20 scroll-mt-24">
-            <h2 className="text-right text-[30px] font-light text-[#3C3C34] mb-10">
+            <h2 className="text-left lg:text-right text-[30px] font-light text-[#3C3C34] mb-10">
               Residential
             </h2>
-            <div className="text-right">
+            {/* Mobile */}
+            <div className="lg:hidden text-left">
+              <p className="text-[15px] leading-[1.6] text-[#848484]">
+                Fourem achieve exceptional outcomes for residential development projects. The practice understands the requirement to achieve a return from investment in all its forms. They listen to the requirements of any commercial venture, enhancing the outcome of the brief through every design consideration. Fourem understand the process of achieving the goals of a development and the permissions required to carry out works seeking opportunity in every aspect of a project.
+              </p>
+            </div>
+            {/* Desktop */}
+            <div className="hidden lg:block text-right">
               <p className="text-[15px] leading-[1.2] text-[#848484] mb-2">
                 Fourem achieve exceptional outcomes for residential development projects. The practice
               </p>
@@ -382,10 +380,17 @@ export default function UnifiedAboutPage() {
           </div>
 
           <div id="commercial" className="mb-20 scroll-mt-24">
-            <h2 className="text-right text-[30px] font-light text-[#3C3C34] mb-10">
+            <h2 className="text-left lg:text-right text-[30px] font-light text-[#3C3C34] mb-10">
               Commercial
             </h2>
-            <div className="text-right">
+            {/* Mobile */}
+            <div className="lg:hidden text-left">
+              <p className="text-[15px] leading-[1.6] text-[#848484]">
+                Fourem understand the process of achieving the goals of a commercial project and the permissions required to carry out works. They listen to the requirements of the brief maintaining the commercial identity of a project to the last detail balancing economy with practicality and always achieving the impact required.
+              </p>
+            </div>
+            {/* Desktop */}
+            <div className="hidden lg:block text-right">
               <p className="text-[15px] leading-[1.2] text-[#848484] mb-2">
                 Fourem understand the process of achieving the goals of a commercial project and the
               </p>
@@ -402,10 +407,17 @@ export default function UnifiedAboutPage() {
           </div>
 
           <div id="conservation" className="mb-20 scroll-mt-24">
-            <h2 className="text-right text-[30px] font-light text-[#3C3C34] mb-10">
+            <h2 className="text-left lg:text-right text-[30px] font-light text-[#3C3C34] mb-10">
               Conservation
             </h2>
-            <div className="text-right mb-8">
+            {/* Mobile */}
+            <div className="lg:hidden text-left mb-8">
+              <p className="text-[15px] leading-[1.6] text-[#848484]">
+                Fourem are experts in Architectural Conservation employing a balanced, economical and informed approach to the conservation of existing buildings; often combining their work with sensitive new intervention. In conservation they aim to maintain as much of the existing fabric of any significant structure or setting as is possible. When intervention is required, they know how to protect the integrity of an existing place while achieving the project goals and presenting historic places with great skill.
+              </p>
+            </div>
+            {/* Desktop */}
+            <div className="hidden lg:block text-right mb-8">
               <p className="text-[15px] leading-[1.2] text-[#848484] mb-2">
                 Fourem are experts in Architectural Conservation employing a balanced, economical and
               </p>
@@ -425,16 +437,23 @@ export default function UnifiedAboutPage() {
                 project goals and presenting historic places with great skill.
               </p>
             </div>
-            <div className="w-full max-w-[650px] ml-auto">
+            <div className="w-full lg:max-w-[650px] lg:ml-auto">
               <ImageCarousel images={conservationImages} />
             </div>
           </div>
 
           <div id="restoration" className="mb-20 scroll-mt-24">
-            <h2 className="text-right text-[30px] font-light text-[#3C3C34] mb-10">
+            <h2 className="text-left lg:text-right text-[30px] font-light text-[#3C3C34] mb-10">
               Restoration
             </h2>
-            <div className="text-right mb-8">
+            {/* Mobile */}
+            <div className="lg:hidden text-left mb-8">
+              <p className="text-[15px] leading-[1.6] text-[#848484]">
+                Fourem have expert knowledge of the development of Irish Architecture through the centuries. Fourem produce rigorous, informed and accurate restoration of historic architecture. In restoration they maintain an academic level of cultural accuracy and authenticity combined with a deep understanding of the presentation of historic architecture. Fourem catalogue and study specific detail elements of historic design to inform their work. They closely question the possibility of current bias to ensure they only produce accurate restoration.
+              </p>
+            </div>
+            {/* Desktop */}
+            <div className="hidden lg:block text-right mb-8">
               <p className="text-[15px] leading-[1.2] text-[#848484] mb-2">
                 Fourem have expert knowledge of the development of Irish Architecture through the
               </p>
@@ -457,16 +476,23 @@ export default function UnifiedAboutPage() {
                 only produce accurate restoration.
               </p>
             </div>
-            <div className="w-full max-w-[650px] ml-auto">
+            <div className="w-full lg:max-w-[650px] lg:ml-auto">
               <ImageCarousel images={restorationImages} />
             </div>
           </div>
 
           <div id="urban-design" className="mb-20 scroll-mt-24">
-            <h2 className="text-right text-[30px] font-light text-[#3C3C34] mb-10">
+            <h2 className="text-left lg:text-right text-[30px] font-light text-[#3C3C34] mb-10">
               Urban Design
             </h2>
-            <div className="text-right">
+            {/* Mobile */}
+            <div className="lg:hidden text-left">
+              <p className="text-[15px] leading-[1.6] text-[#848484]">
+                Fourem understand the development of historic towns and cities and reinterpret these places with great care. An expert knowledge of urban space and the detail of historic urban construction allows Fourem to reinterpret historic space and develop new architecture economically resulting in exceptional civic benefit and better returns for investment. Fourem understand the urban context and detail of Irish towns and cities with specific knowledge of the Munster area.
+              </p>
+            </div>
+            {/* Desktop */}
+            <div className="hidden lg:block text-right">
               <p className="text-[15px] leading-[1.2] text-[#848484] mb-2">
                 Fourem understand the development of historic towns and cities and reinterpret these
               </p>
@@ -489,10 +515,17 @@ export default function UnifiedAboutPage() {
           </div>
 
           <div id="landscaping" className="mb-20 scroll-mt-24">
-            <h2 className="text-right text-[30px] font-light text-[#3C3C34] mb-10">
+            <h2 className="text-left lg:text-right text-[30px] font-light text-[#3C3C34] mb-10">
               Landscaping
             </h2>
-            <div className="text-right mb-8">
+            {/* Mobile */}
+            <div className="lg:hidden text-left mb-8">
+              <p className="text-[15px] leading-[1.6] text-[#848484]">
+                Fourem are experts in urban landscaping and understand the intangible character of the historic context of urban space and detail. They take an economical approach, informed by knowledge of landscape forms and soft intervention. The practice understands design that is appropriate to context and getting the best from resources.
+              </p>
+            </div>
+            {/* Desktop */}
+            <div className="hidden lg:block text-right mb-8">
               <p className="text-[15px] leading-[1.2] text-[#848484] mb-2">
                 Fourem are experts in urban landscaping and understand the intangible character of the
               </p>
@@ -506,16 +539,23 @@ export default function UnifiedAboutPage() {
                 that is appropriate to context and getting the best from resources.
               </p>
             </div>
-            <div className="w-full max-w-[650px] ml-auto">
+            <div className="w-full lg:max-w-[650px] lg:ml-auto">
               <ImageCarousel images={landscapingImages} />
             </div>
           </div>
 
           <div id="consulting" className="mb-20 scroll-mt-24">
-            <h2 className="text-right text-[30px] font-light text-[#3C3C34] mb-10">
+            <h2 className="text-left lg:text-right text-[30px] font-light text-[#3C3C34] mb-10">
               Consulting
             </h2>
-            <div className="text-right">
+            {/* Mobile */}
+            <div className="lg:hidden text-left">
+              <p className="text-[15px] leading-[1.6] text-[#848484]">
+                Fourem have a unique overview of design and investment requirements. They collaborate to support successful outcomes for private and public projects of greatly varying scale and requirements. Fourem seek opportunity for design teams, advising on conservation and development that is part of protected landscapes and structures. Fourem create a route to exceptional returns by awareness of what makes a project successful, combining that awareness with expertise and exceptional service that enables projects to reach multi benefit, economical solutions.
+              </p>
+            </div>
+            {/* Desktop */}
+            <div className="hidden lg:block text-right">
               <p className="text-[15px] leading-[1.2] text-[#848484] mb-2">
                 Fourem have a unique overview of design and investment requirements. They
               </p>
@@ -541,10 +581,17 @@ export default function UnifiedAboutPage() {
           </div>
 
           <div id="reports" className="mb-20 scroll-mt-24">
-            <h2 className="text-right text-[30px] font-light text-[#3C3C34] mb-10">
+            <h2 className="text-left lg:text-right text-[30px] font-light text-[#3C3C34] mb-10">
               Reports
             </h2>
-            <div className="text-right mb-8">
+            {/* Mobile */}
+            <div className="lg:hidden text-left mb-8">
+              <p className="text-[15px] leading-[1.6] text-[#848484]">
+                Fourem provide reporting services based on grade 1 conservation and architectural and landscaping expertise for private works and public projects. Fourem ensure that their reports are concise, informative and reflect project outcomes, supported by rigorous expert knowledge. Fourem consulting create reports that are organised clearly with exceptional benefit in the planning and construction process. They have an evolved awareness of economic realities and negotiation backed up by vast knowledge of conservation, restoration and building in context.
+              </p>
+            </div>
+            {/* Desktop */}
+            <div className="hidden lg:block text-right mb-8">
               <p className="text-[15px] leading-[1.2] text-[#848484] mb-2">
                 Fourem provide reporting services based on grade 1 conservation and architectural and
               </p>
@@ -567,16 +614,23 @@ export default function UnifiedAboutPage() {
                 conservation, restoration and building in context.
               </p>
             </div>
-            <div className="w-full max-w-[650px] ml-auto">
+            <div className="w-full lg:max-w-[650px] lg:ml-auto">
               <ImageCarousel images={reportsImages} />
             </div>
           </div>
 
           <div id="publications" className="mb-20 scroll-mt-24">
-            <h2 className="text-right text-[30px] font-light text-[#3C3C34] mb-10">
+            <h2 className="text-left lg:text-right text-[30px] font-light text-[#3C3C34] mb-10">
               Publications
             </h2>
-            <div className="text-right mb-8">
+            {/* Mobile */}
+            <div className="lg:hidden text-left mb-8">
+              <p className="text-[15px] leading-[1.6] text-[#848484]">
+                Fourem create publications based on their unique expertise and outlook for private and public interests. Their rigour in the process of research, writing, editing and an attention to detail combined with a balanced and ingenious approach creates exceptional publications. The practice edits and presents publications ready for printing and presents the work of others as required.
+              </p>
+            </div>
+            {/* Desktop */}
+            <div className="hidden lg:block text-right mb-8">
               <p className="text-[15px] leading-[1.2] text-[#848484] mb-2">
                 Fourem create publications based on their unique expertise and outlook for private and
               </p>
@@ -593,16 +647,23 @@ export default function UnifiedAboutPage() {
                 the work of others as required.
               </p>
             </div>
-            <div className="w-full max-w-[650px] ml-auto">
+            <div className="w-full lg:max-w-[650px] lg:ml-auto">
               <ImageCarousel images={publicationsImages} />
             </div>
           </div>
 
           <div id="interiors" className="mb-20 scroll-mt-24">
-            <h2 className="text-right text-[30px] font-light text-[#3C3C34] mb-10">
+            <h2 className="text-left lg:text-right text-[30px] font-light text-[#3C3C34] mb-10">
               Interiors
             </h2>
-            <div className="text-right mb-8">
+            {/* Mobile */}
+            <div className="lg:hidden text-left mb-8">
+              <p className="text-[15px] leading-[1.6] text-[#848484]">
+                Fourem create enduring interiors for homes and commercial projects. Their work carefully reflects the ambition of their clients seeking more than expectations within defined resources. Fourem understand what creates impact and how to achieve a desired result with great subtlety and lasting authenticity rooted in the desires of the people they represent.
+              </p>
+            </div>
+            {/* Desktop */}
+            <div className="hidden lg:block text-right mb-8">
               <p className="text-[15px] leading-[1.2] text-[#848484] mb-2">
                 Fourem create enduring interiors for homes and commercial projects. Their work
               </p>
@@ -619,16 +680,23 @@ export default function UnifiedAboutPage() {
                 represent.
               </p>
             </div>
-            <div className="w-full max-w-[650px] ml-auto">
+            <div className="w-full lg:max-w-[650px] lg:ml-auto">
               <ImageCarousel images={interiorsImages} />
             </div>
           </div>
 
           <div id="objects" className="mb-20 scroll-mt-24">
-            <h2 className="text-right text-[30px] font-light text-[#3C3C34] mb-10">
+            <h2 className="text-left lg:text-right text-[30px] font-light text-[#3C3C34] mb-10">
               Objects
             </h2>
-            <div className="text-right mb-8">
+            {/* Mobile */}
+            <div className="lg:hidden text-left mb-8">
+              <p className="text-[15px] leading-[1.6] text-[#848484]">
+                Fourem have expert knowledge of the development of Irish Architecture through the centuries. Fourem produce rigorous, informed and accurate restoration of historic architecture. In restoration they maintain an academic level of cultural accuracy and authenticity combined with a deep understanding of the presentation of historic architecture. Fourem catalogue and study specific detail elements of historic design to inform their work. They closely question the possibility of current bias to ensure they only produce accurate restoration.
+              </p>
+            </div>
+            {/* Desktop */}
+            <div className="hidden lg:block text-right mb-8">
               <p className="text-[15px] leading-[1.2] text-[#848484] mb-2">
                 Fourem have expert knowledge of the development of Irish Architecture through the
               </p>
@@ -651,34 +719,34 @@ export default function UnifiedAboutPage() {
                 only produce accurate restoration.
               </p>
             </div>
-            <div className="w-full max-w-[650px] ml-auto">
+            <div className="w-full lg:max-w-[650px] lg:ml-auto">
               <ImageCarousel images={objectsImages} />
             </div>
           </div>
         </div>
 
         <div id="read-section" className="mb-20 scroll-mt-24">
-          <h2 className="text-right text-[20px] font-medium text-[#3C3C34] mb-10 pr-4">
+          <h2 className="text-left lg:text-right text-[20px] font-medium text-[#3C3C34] mb-10 lg:pr-4">
             Read
           </h2>
-          <div className="text-right">
-            <h3 className="text-[30px] font-sans font-normal text-[#3C3C34] mb-4 mr-4">
+          <div className="text-left lg:text-right">
+            <h3 className="text-[30px] font-sans font-normal text-[#3C3C34] mb-4 lg:mr-4">
               Ireland and the New Architecture
             </h3>
-            <p className="text-[16px] text-[#848484] mb-8 -mt-2 mr-4">
+            <p className="text-[16px] text-[#848484] mb-8 -mt-2 lg:mr-4">
               Hegarty, John, Streetscapes of County Cork, Cork County Council, 2023 - page 7 - 9
             </p>
-            <a href="/read" className="inline-block mr-4 bg-[#4A4A3E] text-white px-6 py-3 rounded-full text-[13px] hover:bg-[#3C3C34] transition-colors">
+            <a href="/read" className="inline-block lg:mr-4 bg-[#4A4A3E] text-white px-6 py-3 rounded-full text-[13px] hover:bg-[#3C3C34] transition-colors">
               See all →
             </a>
           </div>
         </div>
 
         <div id="contact-section" className="pb-20 scroll-mt-24">
-          <h2 className="text-right text-[40px] font-light text-[#3C3C34] mb-10 pr-0">
+          <h2 className="text-left lg:text-right text-[40px] font-light text-[#3C3C34] mb-10 lg:pr-0">
             Contact Us
           </h2>
-          <div className="text-right">
+          <div className="text-left lg:text-right">
             <h3 className="text-[32px] -mt-4 font-light text-[#3C3C34] mb-8">
               Fourem
             </h3>

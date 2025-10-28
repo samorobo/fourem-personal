@@ -151,9 +151,9 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
               Back
             </Link>
           ) : (
-            <button className="p-2" id="mobile-menu-button" onClick={toggleMenu}>
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+            <button className="p-2" id="mobile-menu-button" onClick={toggleMenu} aria-label="Open menu">
+              <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
               </svg>
             </button>
           )}
@@ -179,8 +179,87 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
         {/* Mobile Sidebar Overlay */}
         <div id="mobile-sidebar-overlay" className="hidden fixed inset-0 bg-black bg-opacity-50 z-40"></div>
         
-        
-        <div className="fixed top-0 left-0 h-screen w-[240px] bg-[#E4EEF4] z-40 transform -translate-x-full lg:translate-x-0 lg:top-[50px] lg:h-[calc(100vh-50px)] transition-transform duration-300" 
+        {/* Desktop Sidebar - Only visible on desktop */}
+        <div className="hidden lg:block fixed top-[50px] left-0 h-[calc(100vh-50px)] w-[240px] bg-[#E4EEF4] z-40" id="desktop-sidebar">
+          <div className="h-full overflow-y-auto no-scrollbar">
+            <div className="p-6 pl-10 pt-8 pb-8 flex flex-col h-full">
+              <div className="flex-1">
+                <div className="flex justify-between items-center mb-16">
+                  <Link href="/" className="block">
+                    <h1 className={`${isWorkPage ? "text-[40px]" : "text-[48px]"} font-light text-[#3C3C34] leading-none tracking-tight`}>
+                      Fourem
+                    </h1>
+                  </Link>
+                </div>
+
+                {/* Desktop Sidebar Navigation */}
+                <nav className={`flex flex-col ${isWorkPage ? "space-y-16 mt-6" : "space-y-6 mt-2"}`}>
+                  {isWorkPage ? (
+                    <>
+                      <Link href="/about" className="block -mt-8 text-[20px] font-light text-[#3C3C34] hover:opacity-70 transition-opacity">
+                        ← Go back
+                      </Link>
+
+                      {workNavItems
+                        .filter((i) => i.type === "section")
+                        .map((item) => {
+                          const defaultHref = pathname === "/work" ? `#${item.id}` : `/work#${item.id}`;
+                          return (
+                            <Link
+                              key={item.id}
+                              href={defaultHref}
+                              prefetch={false}
+                              onClick={(e) => {
+                                if (pathname === "/work") {
+                                  e.preventDefault();
+                                  const target = document.getElementById(item.id);
+                                  if (!target) return;
+
+                                  target.scrollIntoView({ 
+                                    behavior: 'smooth', 
+                                    block: 'start',
+                                    inline: 'nearest'
+                                  });
+
+                                  target.classList.add('scroll-highlight');
+                                  setTimeout(() => target.classList.remove('scroll-highlight'), 1000);
+                                }
+                              }}
+                              className="block text-[23px] font-light text-[#3C3C34] hover:opacity-70 transition-opacity font-['Times_New_Roman']"
+                              style={{ margin: '0.35rem 0' }}
+                            >
+                              {item.name}
+                            </Link>
+                          );
+                        })}
+                    </>
+                  ) : (
+                    mainNavItems.map((item) => (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        onClick={item.onClick}
+                        className={`block text-[20px] font-light text-[#3C3C34] hover:opacity-70 transition-opacity ${
+                          pathname.startsWith(item.href.split('#')[0]) ? "opacity-60" : ""
+                        }`}
+                      >
+                        {item.name}
+                      </Link>
+                    ))
+                  )}
+                </nav>
+              </div>
+              
+              {/* Footer for the desktop sidebar */}
+              <div className="mt-auto pt-8 text-xs text-[#3C3C34] opacity-60">
+                © {new Date().getFullYear()} Fourem
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Sidebar - Only visible on mobile */}
+        <div className="fixed top-0 left-0 h-screen w-[240px] bg-[#E4EEF4] z-40 transform -translate-x-full transition-transform duration-300 lg:hidden" 
              id="sidebar">
           <div className="h-full overflow-y-auto no-scrollbar">
             <div className="p-6 pl-10 pt-8 pb-8 flex flex-col h-full">
@@ -244,37 +323,18 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
                         })}
                     </>
                   ) : (
-                    mainNavItems.map((item) => (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        onClick={item.onClick || ((e) => {
-                          // Close the mobile menu if open, but allow navigation to proceed
-                          if (isMenuOpen) {
-                            toggleMenu();
-                          }
-                        })}
-                        className={`block text-[18px] lg:text-[20px] font-light text-[#3C3C34] hover:opacity-70 transition-opacity ${
-                          pathname.startsWith(item.href.split('#')[0]) ? "opacity-60" : ""
-                        }`}
-                      >
-                        {item.name}
-                      </Link>
-                    ))
+                    <div className="text-center py-8">
+                      <p className="text-[14px] text-[#848484]">Tap outside to close menu</p>
+                    </div>
                   )}
                 </nav>
-              </div>
-              
-              
-              <div className="hidden lg:block mt-auto pt-8 text-xs text-[#3C3C34] opacity-60">
-                © {new Date().getFullYear()} Fourem
               </div>
             </div>
           </div>
         </div>
 
         {/* Scrollable Main Content */}
-        <main id="work-content" className="flex-1 w-full lg:ml-[240px] px-4 lg:pl-8 lg:pr-16 py-4 lg:py-8">
+        <main id="work-content" className="flex-1 w-full lg:ml-[240px] px-4 lg:pl-8 lg:pr-16 py-4 lg:py-8 overflow-y-auto no-scrollbar">
           {children}
         </main>
       </div>
