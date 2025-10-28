@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import Image from 'next/image';
 
 interface ImageCarouselProps {
   images: string[];
@@ -53,10 +54,9 @@ export default function ImageCarousel({ images }: ImageCarouselProps) {
     setSlidesPerView(slides);
     
     // Update the slide width based on the number of slides per view
-    const slidesInView = emblaApi.slidesInView();
     const slideNodes = emblaApi.slideNodes();
     
-    slideNodes.forEach((slide, index) => {
+    slideNodes.forEach((slide) => {
       const slideEl = slide as HTMLElement;
       slideEl.style.flex = `0 0 calc(100% / ${slides} - 1rem)`;
       slideEl.style.minWidth = `0`;
@@ -107,11 +107,13 @@ export default function ImageCarousel({ images }: ImageCarouselProps) {
               }}
             >
               <div className="relative pb-[75%] overflow-hidden">
-                <img
+                <Image
                   src={image}
                   alt={`Image ${index + 1}`}
-                  className="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-300"
                   loading={index > 1 ? 'lazy' : 'eager'}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>
             </div>

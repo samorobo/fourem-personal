@@ -1,5 +1,6 @@
 "use client"
 import { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import WorkSidebar from '@/components/WorkSidebar';
 
 // Image arrays
@@ -250,10 +251,13 @@ export default function UnifiedAboutPage() {
           </h4>
           <div className="w-full lg:max-w-[650px] lg:ml-auto relative">
             <div className="relative w-full h-[300px] bg-gray-100 overflow-hidden">
-              <img
+              <Image
                 src="/images/About.avif"
                 alt="Architecture Detail"
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 650px"
+                priority
               />
             </div>
           </div>
@@ -823,24 +827,11 @@ export default function UnifiedAboutPage() {
                 </h3>
                 <div className="text-[13px] leading-[1.8] text-[#848484] text-right space-y-6">
                   <p>
-                    <p>A new architectural expression arrived in Ireland in the 18th century. Clean simple lines were</p>
-                     <p>combined with Classical proportion and detail inspired by the architecture of Andrea Palladio from</p> 
-                     <p>the Venetian State of the 17th Century, Irish towns and cities began to represent a built form of the</p> 
-                     <p>Philosophy of the new age of Enlightenment that was sweeping across Europe and Palladio's work</p>
-                      <p>greatly influenced Ireland. This was the 'Irish Age of Reason' in architecture and formed the</p> 
-                      <p>greatest part of the distinctive built heritage of the country. It was a period of growth and optimism,</p> 
-                      <p>brought about by relative peace and trade. In the period between 1750 and 1840, the population of</p> 
-                      <p>Ireland more than doubled from three million people and in tha period many of our</p>
-                       <p>villages, towns and cities were almost entirely rebuilt and, in some cases, redesigned in classical</p> 
-                       <p>form over medieval plans. Serious problem in Ireland which led to famine, population decline and</p> 
-                       <p>a lack of industrialization in many parts after the 1840s meant that the architecture of the time was </p>
-                       <p>greatly preserved until late in the 20th century.</p>
+                    A new architectural expression arrived in Ireland in the 18th century. Clean simple lines were introduced in architecture and detail inspired by the Palladian style. Dublin from the Westlin Hotel of the 17th Century, Irish towns and cities began to represent a built form of the age of Enlightenment that was sweeping across Europe. Dublin&apos;s work greatly influenced Ireland. This was the &apos;Irish Age of Reason&apos; in architecture and formed the greatest period of architectural development in Ireland. It was a period of growth and optimism, brought about by relative peace and trade. In the period between 1750 and 1840, the population of Ireland grew from 2.5 million to 8.5 million. This resulted in a period of plenty and of optimism. Villages, towns and cities were almost entirely rebuilt and, in some cases, redesigned to Classical Plan form. Civic buildings in Ireland which had to be built, provided the design and architectural inspiration in many parts after the 18th century. The architecture of Ireland was a form of manifestations in many parts after the 18th century. The architecture of Ireland was greatly preserved until late in the 20th century.
                   </p>
-
-                  <p>Economy of thought and ingenious consideration of design produced great beauty effortlessly, in</p> 
-                    <p>the 18th and early 19th C. The examination of any one element of this architecture clearly </p>
-                    <p>demonstrates the Spartan simplicity and practicality of an ambitious age of expansion in Ireland and in County Cork.</p>
-                
+                  <p>
+                    Economy of thought and ingenious consideration of design produced great beauty effortlessly. In the Irish Age of Reason, the composition of the art of reason of the architecture clearly demonstrates the &apos;Specific simplicity&apos; and practicality of an ambitious age of explosion in Ireland and in County Cork.
+                  </p>  
                 </div>
               </div>
 

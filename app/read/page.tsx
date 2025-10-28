@@ -1,3 +1,6 @@
+'use client'
+import { useState } from 'react';
+import Image from 'next/image';
 import SidebarLayout from '@/components/SidebarLayout';
 
 export default function ReadPage() {
@@ -69,11 +72,15 @@ export default function ReadPage() {
           </div>
 
           <div className="w-full mt-12 max-w-[650px] ml-auto relative">
-            <img
-              src="/images/read.avif"  
-              alt="Architecture Detail"
-              className="w-full h-auto object-cover"
-            />
+            <div className="relative w-full aspect-[4/3]">
+              <Image
+                src="/images/read.avif"  
+                alt="Architecture Detail"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 650px"
+              />
+            </div>
           </div>
 
           <div className="mb-20 mt-12">
