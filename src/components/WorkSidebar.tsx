@@ -36,7 +36,7 @@ export default function WorkSidebar({ isVisible, onNavigate }: WorkSidebarProps)
     >
       <div className="flex flex-col h-full py-8 px-6">
         {/* Fourem Branding */}
-        <h1 
+        {/* <h1 
           className="text-[28px] mb-8 cursor-pointer hover:opacity-70 transition-opacity"
           style={{ 
             fontFamily: '"Times New Roman", Times, serif',
@@ -46,7 +46,7 @@ export default function WorkSidebar({ isVisible, onNavigate }: WorkSidebarProps)
           onClick={handleGoBack}
         >
           Fourem
-        </h1>
+        </h1> */}
 
         {/* Go Back Link */}
         <button

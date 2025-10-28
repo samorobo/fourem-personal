@@ -138,6 +138,7 @@ function ImageCarousel({ images }: { images: string[] }) {
 
 export default function UnifiedAboutPage() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isReadModalOpen, setIsReadModalOpen] = useState(false);
 
   const workCategories = [
     { id: 'houses', label: 'Houses' },
@@ -167,7 +168,15 @@ export default function UnifiedAboutPage() {
     <div className="min-h-screen bg-[#E8E8E8]">
       {/* Fixed Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
-        <nav className="hidden lg:flex max-w-[1440px] mx-auto px-6 lg:px-12 py-4 justify-end items-center gap-8">
+        <nav className="hidden lg:flex max-w-[1440px] mx-auto px-6 lg:px-12 py-4 justify-between items-center">
+          <h1 
+            className="text-[24px] -ml-4 text-[#3C3C34] cursor-pointer hover:opacity-70 transition-opacity"
+            style={{ fontFamily: '"Times New Roman", Times, serif' }}
+            onClick={() => window.location.href = '/'}
+          >
+            Fourem
+          </h1>
+          <div className="flex items-center gap-8">
           <button
             onClick={() => scrollToSection('about-section')}
             className="text-black hover:opacity-70 text-[14px] font-medium transition-opacity"
@@ -192,6 +201,7 @@ export default function UnifiedAboutPage() {
           >
             Contact
           </button>
+          </div>
         </nav>
       </header>
 
@@ -204,7 +214,7 @@ export default function UnifiedAboutPage() {
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
         </svg>
-        Menu
+        
       </button>
 
       {/* Mobile Menu */}
@@ -319,6 +329,9 @@ export default function UnifiedAboutPage() {
         </div>
 
         <div id="work-section" className="scroll-mt-24">
+        <h2 className="text-left lg:text-right text-[20px] font-normal text-[#3C3C34] mb-7">
+              Work
+            </h2>
           <div id="houses" className="mb-20 scroll-mt-24">
             <h2 className="text-left lg:text-right text-[30px] font-light text-[#3C3C34] mb-10">
               Houses
@@ -736,14 +749,17 @@ export default function UnifiedAboutPage() {
             <p className="text-[16px] text-[#848484] mb-8 -mt-2 lg:mr-4">
               Hegarty, John, Streetscapes of County Cork, Cork County Council, 2023 - page 7 - 9
             </p>
-            <a href="/read" className="inline-block lg:mr-4 bg-[#4A4A3E] text-white px-6 py-3 rounded-full text-[13px] hover:bg-[#3C3C34] transition-colors">
+            <button 
+              onClick={() => setIsReadModalOpen(true)}
+              className="inline-block lg:mr-4 bg-[#4A4A3E] text-white px-6 py-3 rounded-full text-[13px] hover:bg-[#3C3C34] transition-colors"
+            >
               See all →
-            </a>
+            </button>
           </div>
         </div>
 
         <div id="contact-section" className="pb-20 scroll-mt-24">
-          <h2 className="text-left lg:text-right text-[40px] font-light text-[#3C3C34] mb-10 lg:pr-0">
+          <h2 className="text-left lg:text-right text-[20px] font-light text-[#3C3C34] mb-10 lg:pr-0">
             Contact Us
           </h2>
           <div className="text-left lg:text-right">
@@ -771,6 +787,96 @@ export default function UnifiedAboutPage() {
           </div>
         </div>
       </div>
+
+      {/* Read Modal - Right Half Screen */}
+      {isReadModalOpen && (
+        <div className="fixed inset-0 z-50 flex">
+          {/* Left half - semi-transparent overlay */}
+          <div 
+            className="w-1/2 bg-black/20"
+            onClick={() => setIsReadModalOpen(false)}
+          />
+          
+          {/* Right half - modal content */}
+          <div className="w-1/2 bg-white h-screen overflow-y-auto relative">
+            {/* Close button */}
+            <button
+              onClick={() => setIsReadModalOpen(false)}
+              className="fixed top-6 right-6 text-gray-400 hover:text-gray-600 text-2xl z-10"
+            >
+              ×
+            </button>
+
+            {/* Modal content */}
+            <div className="px-14 py-20 max-w-3xl ml-auto">
+              {/* Read heading aligned right */}
+              <div className="text-right mb-16">
+                <h2 className="text-[20px] font-medium text-[#3C3C34]">
+                  Read
+                </h2>
+              </div>
+
+              {/* Article 1 */}
+              <div className="mb-20">
+                <h3 className="text-[26px] font-normal text-[#3C3C34] mb-8 text-right">
+                  Ireland and the New Architecture
+                </h3>
+                <div className="text-[13px] leading-[1.8] text-[#848484] text-right space-y-6">
+                  <p>
+                    <p>A new architectural expression arrived in Ireland in the 18th century. Clean simple lines were</p>
+                     <p>combined with Classical proportion and detail inspired by the architecture of Andrea Palladio from</p> 
+                     <p>the Venetian State of the 17th Century, Irish towns and cities began to represent a built form of the</p> 
+                     <p>Philosophy of the new age of Enlightenment that was sweeping across Europe and Palladio's work</p>
+                      <p>greatly influenced Ireland. This was the 'Irish Age of Reason' in architecture and formed the</p> 
+                      <p>greatest part of the distinctive built heritage of the country. It was a period of growth and optimism,</p> 
+                      <p>brought about by relative peace and trade. In the period between 1750 and 1840, the population of</p> 
+                      <p>Ireland more than doubled from three million people and in tha period many of our</p>
+                       <p>villages, towns and cities were almost entirely rebuilt and, in some cases, redesigned in classical</p> 
+                       <p>form over medieval plans. Serious problem in Ireland which led to famine, population decline and</p> 
+                       <p>a lack of industrialization in many parts after the 1840s meant that the architecture of the time was </p>
+                       <p>greatly preserved until late in the 20th century.</p>
+                  </p>
+
+                  <p>Economy of thought and ingenious consideration of design produced great beauty effortlessly, in</p> 
+                    <p>the 18th and early 19th C. The examination of any one element of this architecture clearly </p>
+                    <p>demonstrates the Spartan simplicity and practicality of an ambitious age of expansion in Ireland and in County Cork.</p>
+                
+                </div>
+              </div>
+
+              {/* Article 2 */}
+              <div className="mb-20">
+                <h3 className="text-[26px] font-normal text-[#3C3C34] mb-8 text-right">
+                  The Specific Architecture of County Cork
+                </h3>
+                <div className="text-[13px] leading-[1.8] text-[#848484] text-right space-y-6">
+                
+                    <p>County Cork towns were greatly influenced by ideas for building that came from northern Europe</p> 
+                    <p>combined with local circumstances and available materials. Dutch architecture heavily influenced</p> 
+                    <p>Youghal Cork and Kinsale in the 16th and 17th Century. This is seen in the steeply pitched roofs</p> 
+                    <p>and curved Dutch gables employed in each of the three places. All three also used slate hanging to</p> 
+                    <p>keep buildings dry which is stiil seen in Normandy and in Devon, Cornwall and Somerset. Trade</p> 
+                    <p>and new ideas came quickly across the County Cork by sea and these new ideas in architecture translated </p>
+                    <p>quickly across the county.</p>
+                  
+                  <div>
+          <div className="text-[13px] leading-[1.8] text-[#848484] text-right space-y-6">
+                    
+                    <p>In the 17th, 18th and 19th centuries people travelled to the birthplace of Classicism in Greek and</p> 
+                    <p>Italian states to examine  classical details and proportions and they published their studies. Classical</p> 
+                    <p></p>language was then reinterpreted for use in new expression of irish architecture often based on 
+                    <p>the principle of Andrea Palladio who had written his Four Books on Architecture in the 17th</p>
+                    <p>century. Classicism based on symmetry and plain exteral detail became the architectural language</p> 
+                    <p>of a modern, progressive Ireland. The country took this design ethic on board with great enthusiasm</p> 
+                    <p>in the latter 18th century in more peaceful times.</p>
+                     </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
