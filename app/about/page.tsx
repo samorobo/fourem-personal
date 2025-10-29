@@ -252,7 +252,7 @@ export default function UnifiedAboutPage() {
             About Us
           </h4>
           <div className="w-full lg:max-w-[650px] lg:ml-auto relative">
-            <div className="relative w-full h-[300px] bg-gray-100 overflow-hidden">
+            {/* <div className="relative w-full h-[300px] bg-gray-100 overflow-hidden">
               <Image
                 src="/images/About.avif"
                 alt="Architecture Detail"
@@ -261,7 +261,7 @@ export default function UnifiedAboutPage() {
                 sizes="(max-width: 1024px) 100vw, 650px"
                 priority
               />
-            </div>
+            </div> */}
           </div>
         </div>
 
