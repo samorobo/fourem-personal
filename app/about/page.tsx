@@ -9,7 +9,7 @@ const houseImages = [
   '/images/02 Houses (1).jpg',
   '/images/003 Houses (1).jpg',
   '/images/04 Houses (1).JPG',
-  '/images/05 Houses (1).jpg',
+  '/images/05 Houses (1).JPG',
   '/images/06 Houses (1).jpg',
 ];
 
@@ -26,11 +26,10 @@ const conservationImages = [
 
 const restorationImages = [
   '/images/01 Restoration.jpg',
-  '/images/02 Restoration.jpg',
+  '/images/02 Restoration.JPG',
   '/images/03 Restoration.jpg',
   '/images/04 Restoration.jpg',
   '/images/05 Restoration.jpg',
-  '/images/06 Restoration.jpg',
   '/images/07 Restoration.jpg',
   '/images/W H 2 PHOTO 15 (Edited).jpg'
 ];
@@ -63,8 +62,8 @@ const interiorsImages = [
 
 const objectsImages = [
   '/images/01 Object.jpg',
-  '/images/02 Object.jpg',
-  '/images/03 Object.jpg',
+  '/images/02 object.jpg',
+  '/images/03 object.jpg',
   '/images/Ballinora church18.jpg',
 ];
 
