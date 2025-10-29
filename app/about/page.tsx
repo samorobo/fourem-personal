@@ -206,10 +206,12 @@ export default function UnifiedAboutPage() {
         </nav>
       </header>
 
-      {/* Mobile Menu Button */}
+      {/* Mobile Menu Button - Hidden when modal is open */}
       <button
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        className="lg:hidden fixed top-4 right-6 z-[60] bg-white text-black px-4 py-2.5 rounded-full text-sm shadow-md flex items-center gap-2 hover:bg-gray-50 transition-colors"
+        className={`lg:hidden fixed top-4 right-6 z-[60] bg-white text-black px-4 py-2.5 rounded-full text-sm shadow-md flex items-center gap-2 hover:bg-gray-50 transition-colors ${
+          isReadModalOpen ? 'hidden' : ''
+        }`}
         aria-label="Open menu"
       >
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -792,30 +794,32 @@ export default function UnifiedAboutPage() {
         </div>
       </div>
 
-      {/* Read Modal - Right Half Screen */}
+      {/* Read Modal - Full width on mobile, right half on desktop */}
       {isReadModalOpen && (
         <div className="fixed inset-0 z-50 flex">
-          {/* Left half - semi-transparent overlay */}
+          {/* Left half - semi-transparent overlay (hidden on mobile) */}
           <div 
-            className="w-1/2 bg-black/20"
+            className="hidden lg:block lg:w-1/2 bg-black/20"
             onClick={() => setIsReadModalOpen(false)}
           />
           
-          {/* Right half - modal content */}
-          <div className="w-1/2 bg-white h-screen overflow-y-auto relative">
-            {/* Close button */}
+          {/* Modal content - full width on mobile, half on desktop */}
+          <div className="w-full lg:w-1/2 bg-white h-screen overflow-y-auto relative">
+            {/* Close button - visible on mobile */}
             <button
               onClick={() => setIsReadModalOpen(false)}
-              className="fixed top-6 right-6 text-gray-400 hover:text-gray-600 text-2xl z-10"
+              className="absolute top-4 right-4 lg:top-6 lg:right-6 text-gray-600
+               hover:text-gray-800 text-3xl lg:text-2xl z-10 w-10 h-10 flex items-center justify-center"
+              aria-label="Close modal"
             >
               ×
             </button>
 
             {/* Modal content */}
-            <div className="px-14 py-20 max-w-3xl ml-auto">
-              {/* Read heading aligned right */}
-              <div className="text-right mb-16">
-                <h2 className="text-[20px] font-medium text-[#3C3C34]">
+            <div className="px-8 pt-16 pb-16 lg:px-16 lg:py-20 max-w-3xl lg:ml-auto">
+              {/* Read heading aligned right - below close button */}
+              <div className="text-right mb-12 lg:mb-16 mt-2">
+                <h2 className="text-[20px]  font-medium text-[#3C3C34]">
                   Read
                 </h2>
               </div>
