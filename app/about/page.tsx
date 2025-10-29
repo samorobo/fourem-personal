@@ -169,6 +169,18 @@ export default function UnifiedAboutPage() {
     <div className="min-h-screen bg-[#E8E8E8]">
       {/* Fixed Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
+        {/* Mobile Header */}
+        <div className="lg:hidden flex items-center justify-between px-6 py-4">
+          <h1 
+            className="text-[24px] text-[#3C3C34] cursor-pointer hover:opacity-70 transition-opacity"
+            style={{ fontFamily: '"Times New Roman", Times, serif' }}
+            onClick={() => window.location.href = '/'}
+          >
+            Fourem
+          </h1>
+        </div>
+
+        {/* Desktop Header */}
         <nav className="hidden lg:flex max-w-[1440px] mx-auto px-6 lg:px-12 py-4 justify-between items-center">
           <h1 
             className="text-[24px] ml-6 text-[#3C3C34] cursor-pointer hover:opacity-70 transition-opacity"
