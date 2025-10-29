@@ -29,12 +29,11 @@ export default function WorkSidebar({ isVisible, onNavigate }: WorkSidebarProps)
 
   return (
     <aside
-      className={`hidden lg:block fixed left-0 top-0 h-screen bg-[#E8E8E8] mt-12 z-40 transition-all duration-300 ease-in-out ${
-        isVisible ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'
+      className={`transition-all duration-300 ease-in-out ${
+        isVisible ? 'opacity-100' : 'opacity-0'
       }`}
-      style={{ width: '220px' }}
     >
-      <div className="flex flex-col h-full py-8 px-6">
+      <div className="flex flex-col py-8 px-6">
         {/* Fourem Branding */}
         {/* <h1 
           className="text-[28px] mb-8 cursor-pointer hover:opacity-70 transition-opacity"

@@ -171,7 +171,7 @@ export default function UnifiedAboutPage() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
         <nav className="hidden lg:flex max-w-[1440px] mx-auto px-6 lg:px-12 py-4 justify-between items-center">
           <h1 
-            className="text-[24px] -ml-4 text-[#3C3C34] cursor-pointer hover:opacity-70 transition-opacity"
+            className="text-[24px] ml-6 text-[#3C3C34] cursor-pointer hover:opacity-70 transition-opacity"
             style={{ fontFamily: '"Times New Roman", Times, serif' }}
             onClick={() => window.location.href = '/'}
           >
@@ -232,23 +232,10 @@ export default function UnifiedAboutPage() {
         </div>
       )}
 
-      {/* Work Section Sidebar */}
-      <WorkSidebar 
-        isVisible={true} 
-        onNavigate={scrollToSection}
-      />
-
-      {/* Main Content - Add top padding to account for fixed header and left padding for sidebar */}
-      {/* <div 
-        className="max-w-[1440px] mx-auto px-6 lg:px-12 pt-24 pb-20 transition-all duration-300 ease-in-out"
-        style={{ 
-          marginLeft: isDesktop && showWorkSidebar ? '220px' : '0'
-        }}
-      > */}
-
-<div className="max-w-[1440px] mx-auto px-6 lg:px-12 pt-24 pb-20">
+      {/* Main Content */}
+      <div className="max-w-[1440px] mx-auto px-6 lg:px-12 pt-24 pb-20">
         <div id="about-section" className="mb-20 relative">
-          <h4 className="text-left lg:text-right text-[20px] font-normal text-[#3C3C34] mb-10 lg:pr-4">
+          <h4 className="text-left lg:text-right text-[20px] font-normal lg:-mr-[34px] text-[#3C3C34] mb-10 lg:pr-4">
             About Us
           </h4>
           <div className="w-full lg:max-w-[650px] lg:ml-auto relative">
@@ -265,8 +252,8 @@ export default function UnifiedAboutPage() {
           </div>
         </div>
 
-        <div className="mb-20">
-          <h2 className="text-left lg:text-right text-[30px] font-medium text-[#3C3C34] mb-10 lg:pr-4">
+        <div className="mb-20 lg:-mr-[16px]">
+          <h2 className="text-left lg:text-right text-[30px] font-medium text-[#3C3C34] mb-10 lg:pr-4 lg:-mr-[18px]">
             Architecture
           </h2>
           {/* Mobile view - flowing paragraphs */}
@@ -307,7 +294,7 @@ export default function UnifiedAboutPage() {
           </div>
         </div>
 
-        <div className="mb-20">
+        <div className="mb-20 lg:-mr-[16px]">
           <h2 className="text-left lg:text-right text-[30px] font-light text-[#3C3C34] mb-10 lg:pr-4">
             Consultancy
           </h2>
@@ -334,11 +321,25 @@ export default function UnifiedAboutPage() {
           </div>
         </div>
 
-        <div id="work-section" className="scroll-mt-24">
-        <h2 className="text-left lg:text-right text-[20px] font-normal text-[#3C3C34] mb-7">
-              Work
-            </h2>
-          <div id="houses" className="mb-20 scroll-mt-24">
+        {/* Work Section with Sidebar */}
+        <div id="work-section" className="scroll-mt-24 relative">
+          <div className="flex gap-8">
+            {/* Sticky Sidebar - Only visible on desktop */}
+            <div className="hidden lg:block w-[220px] flex-shrink-0">
+              <div className="sticky top-24">
+                <WorkSidebar 
+                  isVisible={true} 
+                  onNavigate={scrollToSection}
+                />
+              </div>
+            </div>
+
+            {/* Work Content */}
+            <div className="flex-1 lg:-mr-[16px]">
+              <h2 className="text-left lg:text-right text-[20px] font-normal text-[#3C3C34] mb-7">
+                Work
+              </h2>
+              <div id="houses" className="mb-20 scroll-mt-24">
             <h2 className="text-left lg:text-right text-[30px] font-light text-[#3C3C34] mb-10">
               Houses
             </h2>
@@ -742,9 +743,11 @@ export default function UnifiedAboutPage() {
               <ImageCarousel images={objectsImages} />
             </div>
           </div>
+            </div>
+          </div>
         </div>
 
-        <div id="read-section" className="mb-20 scroll-mt-24">
+        <div id="read-section" className="mb-20 scroll-mt-24 lg:-mr-[30px]">
           <h2 className="text-left lg:text-right text-[20px] font-medium text-[#3C3C34] mb-10 lg:pr-4">
             Read
           </h2>
@@ -764,16 +767,16 @@ export default function UnifiedAboutPage() {
           </div>
         </div>
 
-        <div id="contact-section" className="pb-20 scroll-mt-24">
-          <h2 className="text-left lg:text-right text-[20px] font-light text-[#3C3C34] mb-10 lg:pr-0">
+        <div id="contact-section" className="pb-20 scroll-mt-24 lg:-mr-[16px]">
+          <h2 className="text-left lg:text-right text-[20px] -mt-[2px] font-light text-[#3C3C34] mb-10 lg:pr-0">
             Contact Us
           </h2>
           <div className="text-left lg:text-right">
-            <h3 className="text-[32px] -mt-4 font-light text-[#3C3C34] mb-8">
+            <h3 className="text-[32px] -mt-[18px] font-light text-[#3C3C34] mb-8">
               Fourem
             </h3>
             <div className="text-[#848484] space-y-0 leading-[1.6]">
-              <p className="text-[16px]">9 Sidney Place</p>
+              <p className="text-[15px]">9 Sidney Place</p>
               <p>Wellington Road</p>
               <p>Cork</p>
               <p>Ireland</p>
