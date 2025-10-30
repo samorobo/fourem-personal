@@ -843,7 +843,7 @@ export default function UnifiedAboutPage() {
                 <h3 className="text-[26px] font-normal text-[#3C3C34] mb-8 text-right">
                   Ireland and the New Architecture
                 </h3>
-                <div className="text-[13px] leading-[1.8] text-[#848484] text-right space-y-6">
+                <div className="text-[13px] leading-[1.8] text-[#848484] text-justify space-y-6">
                   <p>
                     A new architectural expression arrived in Ireland in the 18th century. Clean simple lines were introduced in architecture and detail inspired by the Palladian style. Dublin from the Westlin Hotel of the 17th Century, Irish towns and cities began to represent a built form of the age of Enlightenment that was sweeping across Europe. Dublin&apos;s work greatly influenced Ireland. This was the &apos;Irish Age of Reason&apos; in architecture and formed the greatest period of architectural development in Ireland. It was a period of growth and optimism, brought about by relative peace and trade. In the period between 1750 and 1840, the population of Ireland grew from 2.5 million to 8.5 million. This resulted in a period of plenty and of optimism. Villages, towns and cities were almost entirely rebuilt and, in some cases, redesigned to Classical Plan form. Civic buildings in Ireland which had to be built, provided the design and architectural inspiration in many parts after the 18th century. The architecture of Ireland was a form of manifestations in many parts after the 18th century. The architecture of Ireland was greatly preserved until late in the 20th century.
                   </p>
@@ -858,28 +858,120 @@ export default function UnifiedAboutPage() {
                 <h3 className="text-[26px] font-normal text-[#3C3C34] mb-8 text-right">
                   The Specific Architecture of County Cork
                 </h3>
-                <div className="text-[13px] leading-[1.8] text-[#848484] text-right space-y-6">
+                <div className="text-[13px] leading-[1.8] text-[#848484] text-justify space-y-6">
                 
-                    <p>County Cork towns were greatly influenced by ideas for building that came from northern Europe</p> 
+                    {/* <p>County Cork towns were greatly influenced by ideas for building that came from northern Europe</p> 
                     <p>combined with local circumstances and available materials. Dutch architecture heavily influenced</p> 
                     <p>Youghal Cork and Kinsale in the 16th and 17th Century. This is seen in the steeply pitched roofs</p> 
                     <p>and curved Dutch gables employed in each of the three places. All three also used slate hanging to</p> 
                     <p>keep buildings dry which is stiil seen in Normandy and in Devon, Cornwall and Somerset. Trade</p> 
                     <p>and new ideas came quickly across the County Cork by sea and these new ideas in architecture translated </p>
-                    <p>quickly across the county.</p>
+                    <p>quickly across the county.</p> */}
+
+                    <p>County Cork towns were greatly influenced by ideas for building that came from northern Europe
+
+combined with local circumstances and available materials. Dutch architecture heavily influenced
+
+Youghal Cork and Kinsale in the 16th and 17th Century. This is seen in the steeply pitched roofs
+
+and curved Dutch gables employed in each of the three places. All three also used slate hanging to
+
+keep buildings dry which is stiil seen in Normandy and in Devon, Cornwall and Somerset. Trade
+
+and new ideas came quickly across the County Cork by sea and these new ideas in architecture translated
+
+quickly across the county</p>
                   
                   <div>
-          <div className="text-[13px] leading-[1.8] text-[#848484] text-right space-y-6">
+          <div className="text-[13px] leading-[1.8] text-[#848484]  space-y-6 text-justify">
                     
-                    <p>In the 17th, 18th and 19th centuries people travelled to the birthplace of Classicism in Greek and</p> 
+                    {/* <p>In the 17th, 18th and 19th centuries people travelled to the birthplace of Classicism in Greek and</p> 
                     <p>Italian states to examine  classical details and proportions and they published their studies. Classical</p> 
                     <p></p>language was then reinterpreted for use in new expression of irish architecture often based on 
                     <p>the principle of Andrea Palladio who had written his Four Books on Architecture in the 17th</p>
                     <p>century. Classicism based on symmetry and plain exteral detail became the architectural language</p> 
                     <p>of a modern, progressive Ireland. The country took this design ethic on board with great enthusiasm</p> 
-                    <p>in the latter 18th century in more peaceful times.</p>
+                    <p>in the latter 18th century in more peaceful times.</p> */}
+
+                    <p>In the 17th, 18th and 19th centuries people travelled to the birthplace of Classicism in Greek and
+
+Italian states to examine classical details and proportions and they published their studies. Classical
+
+language was then reinterpreted for use in new expression of irish architecture often based on
+the principle of Andrea Palladio who had written his Four Books on Architecture in the 17th
+
+century. Classicism based on symmetry and plain exteral detail became the architectural language
+
+of a modern, progressive Ireland. The country took this design ethic on board with great enthusiasm
+
+in the latter 18th century in more peaceful times.
+
+</p>
+                     </div>
+          <div className="text-[13px] leading-[1.8] text-[#848484] text-right space-y-6">
+                    
+          <p className="text-justify">
+          The architecture of this period is concerned with proportion, simple forms and minimal fine detailing. 
+          Economy of construction and of design are a way of thinking for the time. No other country embraced this 
+          new age of simplicity in architecture as Ireland did as a way of thinking and detailing architecture which
+           then defined the character of the Cities, Towns and Villages. Once the great invasion of classical and Palladian 
+           building forms became the norm they then began to develop into a distinctive form adapted to local use but in Ireland 
+           the simplicity of the Palladian Building was maintained rigorously for over two hundred years 
+          until broken by the advent of Victorian opulence in the late 19th century.
+                  </p>
                      </div>
                   </div>
+                </div>
+              </div>
+
+              {/* Image Section - Amsterdam */}
+              <div className="mb-20">
+                <div className="w-full mb-3">
+                  <Image
+                    src="/images/amsterdam.jpg"
+                    alt="View of the Golden Bend, Herengracht, Amsterdam"
+                    width={800}
+                    height={500}
+                    className="w-full h-auto object-cover"
+                    sizes="(max-width: 768px) 100vw, 800px"
+                  />
+                </div>
+                <p className="text-[13px] text-[#848484] text-right italic">
+                  View of the Golden Bend, Herengracht, Amsterdam
+                </p>
+              </div>
+
+              {/* Article 3 - Public Buildings and Hierarchy */}
+              <div className="mb-20">
+                <h3 className="text-[26px] font-normal text-[#3C3C34] mb-8 text-right">
+                  Public Buildings and Hierarchy
+                </h3>
+                <div className="text-[13px] leading-[1.8] text-[#848484] text-justify space-y-6">
+                  <p>
+                    In Ireland as in Europe in general, any buildings of a more public function had a significantly different expression, in terms of scale or material character, to the general rows of houses that contained the streets. The Greeks planned their cities to take advantage of changes in topography to define public spaces and as a place to locate public buildings. This tradition has continued in European urban development to this day. The first form of the public building in was in the temple or church and then, here in our towns, in the 18th Century market house whose expression is always of a significantly different form and scale. In the market house in Ireland we see commerce and civic importance beginning to reveal itself in architectural scale and detail within the towns. As commerce moved to individual producers and merchants the shopfront became the next expression of design separation. In the beginning the shopfront would stand alone in its expression within streets of rows of houses. Over time however many shopfronts were introduced to the more successful towns and villages and each one sat beside the next, competing for attention by the middle of the 19th Century and defining the centre of the town.
+                  </p>
+                </div>
+              </div>
+
+              <div className="mb-20">
+                <h3 className="text-[26px] font-normal text-[#3C3C34] mb-8 text-right">
+                Pattern Books & the Spread of Classicism
+                </h3>
+                <div className="text-[13px] leading-[1.8] text-[#848484] text-justify space-y-6">
+                  <p>
+                  In 18th Century Ireland, pattern books for builders were used as reference guides to inform accurate classical detail and as explanation on how to interpret classical detail for local design application. Pattern books were particularly created for and referenced by building designers and displayed different solutions for many different applications. In Ireland, extensive building at this time meant that tens of thousands of buildings were constructed in the period from 1700 to 1840 under a system of reference to original detail that developed deep consideration of accurate classical detail. Expression in architecture became highly sophisticated. Apprenticeship of architects and builders, including masons and carpenters was central to the refinement of these ideas. Professions and trades maintained their own standards and techniques and often guarded them jealously while maintaining the high standards defined in the publications
+                    </p>
+                </div>
+              </div>
+
+              <div className="mb-20">
+                <p className="text-[16px] font-medium text-[#848484] mb-8 text-justify">
+                Ireland and the New Architecture
+                </p>
+                <div className="text-[13px] leading-[1.8] text-[#848484] text-justify space-y-6 -mt-24">
+                  <p>
+                  Hegarty, John, Streetscapes of County Cork, Cork 2023 - page 7 - 9
+                  </p>
                 </div>
               </div>
             </div>
