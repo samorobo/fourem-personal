@@ -965,10 +965,10 @@ in the latter 18th century in more peaceful times.
               </div>
 
               <div className="mb-20">
-                <p className="text-[16px] font-medium text-[#848484] mb-8 text-justify">
+                <p className="text-[16px] font-medium text-[#848484] mb-8 text-right">
                 Ireland and the New Architecture
                 </p>
-                <div className="text-[13px] leading-[1.8] text-[#848484] text-justify space-y-6 -mt-24">
+                <div className="text-[13px] leading-[1.8] text-[#848484] text-right space-y-6 -mt-24">
                   <p>
                   Hegarty, John, Streetscapes of County Cork, Cork 2023 - page 7 - 9
                   </p>
